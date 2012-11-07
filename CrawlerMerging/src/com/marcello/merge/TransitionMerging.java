@@ -71,7 +71,7 @@ public class TransitionMerging {
 		return doc;
 	}
 	
-	private void merge(NodeList nodeList){
+	public void merge(NodeList nodeList){
 		
 		Hashtable<String, List<Element>> table = new Hashtable<String, List<Element>>();
 		
