@@ -16,6 +16,14 @@ import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -39,10 +47,12 @@ public class ActivityManager {
 
 	List<ActivityState> activities;
 	String xmlFilePath;
+	Document doc;
 
 	ActivityManager(){
 		activities = null;
 		xmlFilePath = null;
+		doc = null;
 	}
 
 	public List<ActivityState> ActivityExtractor(String filePath){
@@ -60,7 +70,6 @@ public class ActivityManager {
 			e.printStackTrace();
 		}
 
-		Document doc = null;
 		FileInputStream stream = null;
 
 		while(doc==null){
@@ -158,7 +167,7 @@ public class ActivityManager {
 		return path;		
 	}
 
-	public void ActivityMerging(String file)
+	public void ActivityMerging()
 	{
 		int count = activities.size();
 
@@ -280,6 +289,47 @@ public class ActivityManager {
 		}
 	}
 
+	private void updateDocument(Document _doc, List<ActivityState> _activities)
+	{
+		Element root = _doc.getDocumentElement();
+		
+		NodeList list = root.getChildNodes();
+		
+		for(int i=0; i<_activities.size();i++)
+		{
+			for(int j=0; j<list.getLength(); j++)
+			{
+				if(_activities.get(i).getUniqueId().equals(list.item(j).getAttributes().getNamedItem("unique_id").getLocalName()))
+					list.item(j).getAttributes().getNamedItem("id").setNodeValue(_activities.get(i).getId());
+			}
+		}
+		
+	}
+	
+	public void PrintActivitiesOnXmlFile(Document doc, String filename) {
+		try {
+			// Prepare the DOM document for writing
+			Source source = new DOMSource(doc);
+
+			// Prepare the output file
+			File file = new File(filename);
+			Result result = new StreamResult(file);
+
+			// Write the DOM document to the file
+			Transformer xformer = TransformerFactory.newInstance().newTransformer();
+			xformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_PUBLIC, "SESSION");
+			xformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_SYSTEM, System.getProperty("user.dir")+File.separator+"guitree.dtd");
+			xformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");
+			xformer.transform(source, result);
+		} catch (TransformerConfigurationException e) {
+		} catch (TransformerException e) {
+		}
+
+		System.out.println("A new File created: "+filename);
+
+		xmlFilePath = filename;
+	}
+	
 	public void printActivities(List<ActivityState> list)
 	{
 		Iterator<ActivityState> iterator = list.iterator();
@@ -306,8 +356,13 @@ public class ActivityManager {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		String file = new String("/Users/Marcello/Desktop/activities_new.xml");
+		ActivityManager manager = new ActivityManager();
+		manager.activities = manager.ActivityExtractor(file);
+		manager.ActivityMerging();
+		manager.updateDocument(manager.doc, manager.activities);
+		manager.printActivities();
+		manager.PrintActivitiesOnXmlFile(manager.doc, file.replace(".xml", "_nuovo.xml"));
 	}
 
 }
