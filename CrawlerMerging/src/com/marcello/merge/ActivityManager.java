@@ -80,15 +80,11 @@ public class ActivityManager {
 				System.out.println("An error occured :" + e +"\nThe source file doesn't have the right format." +
 						"\n\nTrying to modify the source file\n");
 				doc = null;
-				String newFilePath = fixFile(new File(filePath));
-				try {
-					stream = new FileInputStream(newFilePath);
-				} catch (FileNotFoundException e1) {
-					System.out.println("An error occured :" + e1);
-				}
+				filePath = fixFile(new File(filePath));
 				//System.gc();
 			} catch (IOException e) {
 				System.out.println("An error occured :" + e);
+				break;
 			}
 		}	  
 
@@ -136,7 +132,7 @@ public class ActivityManager {
 		String path = null;
 
 		if (file.getAbsolutePath().contains(".xml"))
-			path = file.getAbsolutePath().replace(".xml", "_new.xml");
+			path = file.getAbsolutePath().replace(".xml", "_fixed.xml");
 
 		try {
 			writer = new BufferedWriter(new FileWriter(path));
@@ -292,9 +288,9 @@ public class ActivityManager {
 	private void updateDocument(Document _doc, List<ActivityState> _activities)
 	{
 		Element root = _doc.getDocumentElement();
-		
+
 		NodeList list = root.getChildNodes();
-		
+
 		for(int i=0; i<_activities.size();i++)
 		{
 			for(int j=0; j<list.getLength(); j++)
@@ -303,9 +299,9 @@ public class ActivityManager {
 					list.item(j).getAttributes().getNamedItem("id").setNodeValue(_activities.get(i).getId());
 			}
 		}
-		
+
 	}
-	
+
 	public void PrintActivitiesOnXmlFile(Document doc, String filename) {
 		try {
 			// Prepare the DOM document for writing
@@ -329,7 +325,7 @@ public class ActivityManager {
 
 		xmlFilePath = filename;
 	}
-	
+
 	public void printActivities(List<ActivityState> list)
 	{
 		Iterator<ActivityState> iterator = list.iterator();
@@ -352,17 +348,14 @@ public class ActivityManager {
 	}
 
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		String file = new String("/Users/Marcello/Desktop/activities_new.xml");
+		String file = new String("/Users/Marcello/Desktop/activities.xml");
 		ActivityManager manager = new ActivityManager();
 		manager.activities = manager.ActivityExtractor(file);
 		manager.ActivityMerging();
 		manager.updateDocument(manager.doc, manager.activities);
-		manager.printActivities();
-		manager.PrintActivitiesOnXmlFile(manager.doc, file.replace(".xml", "_nuovo.xml"));
+		//manager.printActivities();
+		manager.PrintActivitiesOnXmlFile(manager.doc, file.replace(".xml", "_merged.xml"));
 	}
 
 }
