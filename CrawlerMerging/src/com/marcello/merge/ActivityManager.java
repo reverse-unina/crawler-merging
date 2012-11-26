@@ -285,7 +285,7 @@ public class ActivityManager {
 		}
 	}
 
-	private void updateDocument(Document _doc, List<ActivityState> _activities)
+	public void updateDocument(Document _doc, List<ActivityState> _activities)
 	{
 		Element root = _doc.getDocumentElement();
 
@@ -349,7 +349,7 @@ public class ActivityManager {
 
 
 	public static void main(String[] args) {
-		String file = new String("/Users/Marcello/Desktop/activities.xml");
+		String file = new String(args[0]);
 		ActivityManager manager = new ActivityManager();
 		manager.activities = manager.ActivityExtractor(file);
 		manager.ActivityMerging();
