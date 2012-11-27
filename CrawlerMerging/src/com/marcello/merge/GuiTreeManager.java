@@ -137,9 +137,9 @@ public class GuiTreeManager {
 	}
 
 	public void TransitionMerging(){
-		
+
 		NodeList nodeList = doc.getDocumentElement().getElementsByTagName("TRANSITION");
-		
+
 		Hashtable<String, List<Element>> table = new Hashtable<String, List<Element>>();
 
 		System.out.print("Merging events...");
@@ -178,7 +178,7 @@ public class GuiTreeManager {
 		System.out.println("Done");
 	}
 
-	
+
 	/***GETTERS AND SETTERS***/
 
 	public String getXmlFilePath() {
@@ -201,6 +201,9 @@ public class GuiTreeManager {
 	/***MAIN***/
 
 	public static void main(String[] args) {
+
+		long startTime = System.currentTimeMillis();
+
 		if(args[0].equals("help"))
 			System.out.println("Parameters should be guitree.xml and activities.xml");
 		else{
@@ -212,8 +215,8 @@ public class GuiTreeManager {
 			manager.PrintGuiTreeOnXmlFile(manager.doc, args[0].replace(".xml", "_intermediate.xml"));
 			manager.TransitionMerging();
 			manager.PrintGuiTreeOnXmlFile(manager.doc, args[0].replace(".xml", "_merged.xml"));
-			System.out.println("***FINISHED***");
 		}
+		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));
 
 	}
 

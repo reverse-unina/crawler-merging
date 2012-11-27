@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -85,18 +87,26 @@ public class ActivityManager {
 		}
 
 		FileInputStream stream = null;
-
+		
 		while(doc==null){
 			try {
-				stream = new FileInputStream(filePath);
+
+				if(new File(filePath.replace(".xml", "_fixed.xml")).exists())
+					stream = new FileInputStream(filePath.replace(".xml", "_fixed.xml"));
+				else
+					stream = new FileInputStream(filePath);
+			
 				doc = builder.parse(stream);
+				
 				stream.close();
+				
 			} catch (SAXException e) {
-				System.out.println("An error occured :" + e +"\nThe source file doesn't have the right format." +
+				System.out.println("\nThe source file doesn't have the right format." +
 						"\n\nTrying to modify the source file\n");
 				doc = null;
+				
 				filePath = fixFile(new File(filePath));
-				//System.gc();
+				
 			} catch (IOException e) {
 				System.out.println("An error occured :" + e);
 				break;
@@ -383,16 +393,20 @@ public class ActivityManager {
 	/***MAIN***/	
 
 	public static void main(String[] args) {
+
+		long startTime = System.currentTimeMillis();
+
 		if(args[0].equals("help"))
 			System.out.println("Parameter should be activities.xml");
 		else{
+
 			ActivityManager manager = new ActivityManager();
 			manager.ActivityExtractor(args[0]);
 			manager.ActivityMerging();
 			manager.updateDocument(manager.doc, manager.activities);
 			manager.PrintActivitiesOnXmlFile(manager.doc, args[0].replace(".xml", "_merged.xml"));
-			System.out.println("***FINISHED***");
 		}
+		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));		
 	}
 
 }
