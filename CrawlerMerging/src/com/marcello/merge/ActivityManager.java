@@ -90,6 +90,7 @@ public class ActivityManager {
 			try {
 				stream = new FileInputStream(filePath);
 				doc = builder.parse(stream);
+				stream.close();
 			} catch (SAXException e) {
 				System.out.println("An error occured :" + e +"\nThe source file doesn't have the right format." +
 						"\n\nTrying to modify the source file\n");
