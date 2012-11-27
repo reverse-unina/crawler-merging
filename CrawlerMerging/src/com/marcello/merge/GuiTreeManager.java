@@ -1,6 +1,7 @@
 package com.marcello.merge;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -41,16 +42,6 @@ public class GuiTreeManager {
 	
 	public void GuiTreeMerging(String guiTree, List<ActivityState> activities)
 	{
-		StreamController stream = null;
-
-		try{
-			stream = new StreamController(guiTree);
-		}
-		catch(java.lang.ArrayIndexOutOfBoundsException e)
-		{
-			System.out.println("An exception occured: "+ e);
-		}
-
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try
@@ -63,18 +54,20 @@ public class GuiTreeManager {
 		{
 			e.printStackTrace();
 		}
-
+		
+		FileInputStream stream = null;
+		
 		doc= null;
 
 		try {
-			doc = builder.parse(stream.getStream());
+			stream = new FileInputStream(guiTree);
+			doc = builder.parse(stream);
+			stream.close();
 		} catch (SAXException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		stream.closeStream();
 
 		ReplaceEntries(doc.getDocumentElement(),activities);
 
