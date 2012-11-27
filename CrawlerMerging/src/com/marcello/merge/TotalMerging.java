@@ -61,7 +61,7 @@ public class TotalMerging {
 				continue;
 			String[] mergeArgs = new String[1];
 			mergeArgs[0] = file.getAbsolutePath();
-			Merge.main(mergeArgs);
+			ExperimentMerging.main(mergeArgs);
 
 		}
 
@@ -136,7 +136,7 @@ public class TotalMerging {
 
 		tm.calculate(xmlFilePath);
 
-		Merge.GetDotFile(tm.getFilePath());
+		ExperimentMerging.GetDotFile(tm.getFilePath());
 
 
 		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));
