@@ -45,15 +45,29 @@ public class ActivityManager {
 
 	/* Internal fields */
 
-	List<ActivityState> activities;
-	String xmlFilePath;
-	Document doc;
+	private List<ActivityState> activities;
+	private String xmlFilePath;
+	private Document doc;
+
+	/***CONSTRUCTORS****/
 
 	ActivityManager(){
-		activities = null;
-		xmlFilePath = null;
-		doc = null;
+		super();
+		this.activities = null;
+		this.xmlFilePath = null;
+		this.doc = null;
 	}
+
+	ActivityManager(List<ActivityState> activities)
+	{
+		super();
+		this.xmlFilePath = null;
+		this.doc = null;
+		this.activities.addAll(activities);
+	}
+
+
+	/***UTILITY FUNCTIONS***/
 
 	public List<ActivityState> ActivityExtractor(String filePath){
 
@@ -110,12 +124,6 @@ public class ActivityManager {
 			activities.add(toAdd);	//Store the element in a vector
 		}
 
-		return activities;
-	}
-
-	public List<ActivityState> ActivityExtractor(List<ActivityState> activity)
-	{
-		activities.addAll(activity);
 		return activities;
 	}
 
@@ -275,16 +283,6 @@ public class ActivityManager {
 		return 0;
 	}
 
-	public List<ActivityState> getActivities()
-	{
-		if(activities!=null)
-			return activities;
-		else{
-			System.out.println("Impossible to obtain the extracted Activities List. It is \"null\"");
-			return null;
-		}
-	}
-
 	public void updateDocument(Document _doc, List<ActivityState> _activities)
 	{
 		Element root = _doc.getDocumentElement();
@@ -348,14 +346,52 @@ public class ActivityManager {
 	}
 
 
+	/***GETTERS AND SETTERS***/
+
+	public List<ActivityState> getActivities()
+	{
+		if(activities!=null)
+			return activities;
+		else{
+			System.out.println("Impossible to obtain the extracted Activities List. It is \"null\"");
+			return null;
+		}
+	}
+
+	public String getXmlFilePath() {
+		return xmlFilePath;
+	}
+
+	public void setXmlFilePath(String xmlFilePath) {
+		this.xmlFilePath = xmlFilePath;
+	}
+
+	public Document getDoc() {
+		return doc;
+	}
+
+	public void setDoc(Document doc) {
+		this.doc = doc;
+	}
+
+	public void setActivities(List<ActivityState> activities) {
+		this.activities = activities;
+	}
+
+
+	/***MAIN***/	
+
 	public static void main(String[] args) {
-		String file = new String(args[0]);
-		ActivityManager manager = new ActivityManager();
-		manager.activities = manager.ActivityExtractor(file);
-		manager.ActivityMerging();
-		manager.updateDocument(manager.doc, manager.activities);
-		//manager.printActivities();
-		manager.PrintActivitiesOnXmlFile(manager.doc, file.replace(".xml", "_merged.xml"));
+		if(args[0].equals("help"))
+			System.out.println("Parameter should be activities.xml");
+		else{
+			ActivityManager manager = new ActivityManager();
+			manager.ActivityExtractor(args[0]);
+			manager.ActivityMerging();
+			manager.updateDocument(manager.doc, manager.activities);
+			manager.PrintActivitiesOnXmlFile(manager.doc, args[0].replace(".xml", "_merged.xml"));
+			System.out.println("***FINISHED***");
+		}
 	}
 
 }
