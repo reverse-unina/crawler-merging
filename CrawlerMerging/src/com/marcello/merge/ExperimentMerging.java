@@ -48,7 +48,7 @@ public class ExperimentMerging {
 		String[] string = new String[2];
 				
 		string[0] = path;
-		string[1] = path.replace(path.split(File.separator)[path.split(File.separator).length-1], "guitree");
+		string[1] = path.replace(new File(path).getName(), "guitree");
 		
 		try {
 			FileManagerFSM.main(string);
