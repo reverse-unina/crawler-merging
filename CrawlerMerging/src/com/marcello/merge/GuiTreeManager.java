@@ -39,6 +39,11 @@ public class GuiTreeManager {
 		this.xmlFilePath = null;
 		this.doc = null;
 	}
+	public GuiTreeManager(Document doc, String filePath) {
+		super();
+		this.xmlFilePath = filePath;
+		this.doc = doc;
+	}
 
 
 	/***UTILITY FUNCTIONS***/

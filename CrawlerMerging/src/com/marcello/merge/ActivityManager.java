@@ -68,6 +68,12 @@ public class ActivityManager {
 		this.activities.addAll(activities);
 	}
 
+	ActivityManager(String activitiesFilePath){
+		super();
+		this.activities = this.ActivityExtractor(activitiesFilePath);
+		this.xmlFilePath = null;
+		this.doc = null;
+	}
 
 	/***UTILITY FUNCTIONS***/
 
