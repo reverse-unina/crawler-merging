@@ -76,8 +76,6 @@ public class GuiTreeManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		System.out.println("Updating Guitree...");
 		
 		ReplaceEntries(doc.getDocumentElement(),activities);
 
