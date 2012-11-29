@@ -35,9 +35,9 @@ public class TotalMerging {
 	public static void main(String[] args) {
 
 		long startTime = System.currentTimeMillis();
-
-		if(args[0].equals("-help")){
-			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"FileInput.zip contains random experiment's folders");
+		
+		if(args.length==0||args[0].equals("-help")){
+			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"(FileInput.zip contains random experiment's folders)");
 			return;
 		}
 		if (args[0].endsWith(".zip")==false){
