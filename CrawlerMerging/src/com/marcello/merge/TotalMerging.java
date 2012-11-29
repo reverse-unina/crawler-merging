@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
@@ -16,7 +14,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -53,7 +50,7 @@ public class TotalMerging {
 
 		//Fa una lista di ciò che è contenuto nel file estratto
 		File[] list = new File(args[0].replace(".zip", "/files")).listFiles();
-		
+
 		//Per ogni CARTELLA (non file) applica l'algoritmo di Merging.
 		for(int i=0; i<list.length; i++){
 			File file = new File(list[i].getAbsolutePath());
@@ -62,7 +59,6 @@ public class TotalMerging {
 			String[] mergeArgs = new String[1];
 			mergeArgs[0] = file.getAbsolutePath();
 			ExperimentMerging.main(mergeArgs);
-
 		}
 
 		activity_temp = new Vector<ActivityState>();
@@ -71,7 +67,7 @@ public class TotalMerging {
 
 		ActivityManager aManager = null;
 		GuiTreeManager gtManager = null;
-		
+
 		//Inizia il ciclo di confronto
 		for(int i=0; i<list.length; i++){
 			System.out.print(".");
@@ -84,7 +80,7 @@ public class TotalMerging {
 				List<ActivityState> activities = aManager.getActivities();			
 
 				try {
-					guitree_temp = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file.getAbsolutePath()+File.separator+"guitree_new_final.xml");
+					guitree_temp = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file.getAbsolutePath()+File.separator+"guitree_merged.xml");
 				} catch (SAXException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
@@ -97,7 +93,7 @@ public class TotalMerging {
 				continue;
 			}
 
-			if(new File(file.getAbsolutePath()+File.separator+"activities_merged.xml").exists()){
+			if(new File(file.getAbsolutePath()+File.separator+"activities_fixed.xml").exists()){
 				//estrae le activity dal file.
 				aManager = new ActivityManager(file.getAbsolutePath()+File.separator+"activities_merged.xml");
 
@@ -106,7 +102,7 @@ public class TotalMerging {
 
 
 				gtManager = new GuiTreeManager();
-				gtManager.ReplaceActivitiesOnGuiTree(file.getAbsolutePath()+File.separator+"guitree_new_final.xml", activities);
+				gtManager.ReplaceActivitiesOnGuiTree(file.getAbsolutePath()+File.separator+"guitree_merged.xml", activities);
 
 				NodeList trace = gtManager.getDoc().getDocumentElement().getElementsByTagName("TRACE");
 				for(int j=0; j<trace.getLength(); j++){
@@ -123,9 +119,9 @@ public class TotalMerging {
 		xmlFilePath = args[0].replace(".zip", File.separator + "files" + File.separator + "guitree.xml" );
 
 		gtManager = new GuiTreeManager(guitree_temp,xmlFilePath);
-		
+
 		gtManager.TransitionMerging();
-		
+
 		gtManager.PrintGuiTreeOnXmlFile(gtManager.getDoc(),xmlFilePath);
 
 		System.gc();

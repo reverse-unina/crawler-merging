@@ -197,6 +197,8 @@ public class ActivityManager {
 		Comparator comparator = selectComparator();
 
 		System.out.println("Using a " + comparator.getClass().toString().split("comparator.")[1] + "\n");
+		
+		System.out.println("Merging Activities...");
 
 		for(int i=0; i<count; i++)
 		{
@@ -328,9 +330,9 @@ public class ActivityManager {
 
 			// Write the DOM document to the file
 			Transformer xformer = TransformerFactory.newInstance().newTransformer();
-			xformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_PUBLIC, "SESSION");
-			xformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_SYSTEM, System.getProperty("user.dir")+File.separator+"guitree.dtd");
-			xformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");
+			//xformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_PUBLIC, "SESSION");
+			//xformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_SYSTEM, System.getProperty("user.dir")+File.separator+"guitree.dtd");
+			//xformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");
 			xformer.transform(source, result);
 		} catch (TransformerConfigurationException e) {
 		} catch (TransformerException e) {
