@@ -21,6 +21,7 @@ public class ExperimentMerging {
 		ActivityManager aManager = new ActivityManager();
 		
 		aManager.ActivityExtractor(activities);
+		System.out.println("Merging Activity...");
 		aManager.ActivityMerging();
 		aManager.updateDocument(aManager.getDoc(), aManager.getActivities());
 		aManager.PrintActivitiesOnXmlFile(aManager.getDoc(), activities.replace(".xml", "_merged.xml"));
@@ -28,13 +29,14 @@ public class ExperimentMerging {
 		String guitree = args[0] + File.separator + "guitree.xml";
 				
 		GuiTreeManager gtManager = new GuiTreeManager();
-		
+		System.out.println("Updating Guitree...");
 		gtManager.ReplaceActivitiesOnGuiTree(guitree, aManager.getActivities());
 		gtManager.PrintGuiTreeOnXmlFile(gtManager.getDoc(), guitree.replace(".xml", "_intermediate.xml"));
+		System.out.println("Merging Events...");
 		gtManager.TransitionMerging();
 		gtManager.PrintGuiTreeOnXmlFile(gtManager.getDoc(), guitree.replace(".xml", "_merged.xml"));
 
-		GetDotFile(gtManager.getXmlFilePath());
+		//GetDotFile(gtManager.getXmlFilePath());
 
 		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));		
 	}

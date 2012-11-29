@@ -114,12 +114,10 @@ public class TotalMerging {
 			}
 		}
 
-		System.out.println("Done");
-
 		xmlFilePath = args[0].replace(".zip", File.separator + "files" + File.separator + "guitree.xml" );
 
 		gtManager = new GuiTreeManager(guitree_temp,xmlFilePath);
-
+		System.out.println("Merging Events...");
 		gtManager.TransitionMerging();
 
 		gtManager.PrintGuiTreeOnXmlFile(gtManager.getDoc(),xmlFilePath);

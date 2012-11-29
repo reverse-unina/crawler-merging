@@ -196,8 +196,6 @@ public class ActivityManager {
 
 		System.out.println("Using a " + comparator.getClass().toString().split("comparator.")[1] + "\n");
 		
-		System.out.println("Merging Activities...");
-
 		for(int i=0; i<count; i++)
 		{
 			ListIterator<ActivityState> iterator = activities.listIterator(i);
