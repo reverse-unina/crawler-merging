@@ -140,7 +140,7 @@ public class TotalMerging {
 
 		//List<ActivityState> append_temp = new Vector<ActivityState>();
 
-		Comparator comparator = new ActivityMerging().selectComparator();
+		Comparator comparator = new ActivityManager().selectComparator();
 
 		//per ogni activity presente nella lista temporanea
 		while(iteratorTemp.hasNext())
