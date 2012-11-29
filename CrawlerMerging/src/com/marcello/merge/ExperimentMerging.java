@@ -2,6 +2,7 @@ package com.marcello.merge;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.PatternSyntaxException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -36,7 +37,7 @@ public class ExperimentMerging {
 		gtManager.TransitionMerging();
 		gtManager.PrintGuiTreeOnXmlFile(gtManager.getDoc(), guitree.replace(".xml", "_merged.xml"));
 
-		//GetDotFile(gtManager.getXmlFilePath());
+		GetDotFile(gtManager.getXmlFilePath());
 
 		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));		
 	}
@@ -59,7 +60,10 @@ public class ExperimentMerging {
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
+		} catch (PatternSyntaxException e) {
+			e.printStackTrace();
 		}
+		
 	}
 
 }
