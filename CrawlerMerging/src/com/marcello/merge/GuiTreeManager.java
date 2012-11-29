@@ -147,8 +147,6 @@ public class GuiTreeManager {
 
 		Hashtable<String, List<Element>> table = new Hashtable<String, List<Element>>();
 
-		System.out.print("Merging events...");
-
 		for(int i=0; i<nodeList.getLength(); i++){	//scorre tutti i nodi TRANSITION
 
 			Element transition = (Element)nodeList.item(i);	//Per ogni nodo TRANSITION
