@@ -35,7 +35,7 @@ public class TotalMerging {
 	public static void main(String[] args) {
 
 		long startTime = System.currentTimeMillis();
-		
+
 		if(args.length==0||args[0].equals("-help")){
 			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"(FileInput.zip contains random experiment's folders)");
 			return;
@@ -48,17 +48,24 @@ public class TotalMerging {
 		//Scompatta il file di input qualora non sia stato già fatto in precedenza
 		unZipIt(args[0]);
 
-		//Fa una lista di ciò che è contenuto nel file estratto
+		//Fa una lista delle cartelle che contengono i file utili per l'algoritmo di merging (activities.xml e guitree.xml)
 		File[] list = getFoldersList(args[0].replace(".zip", ""));
+		System.out.println("Trovate "+list.length + " cartelle adatte.");
+		
+		//Stampa il nome delle cartelle a cui sarà applicato l'algoritmo
+		//for(int i=0;i<list.length;i++)		
+			//System.out.println(list[i].getName());
 
-		//Per ogni CARTELLA (non file) applica l'algoritmo di Merging.
+		//Per ogni CARTELLA  applica l'algoritmo di Merging.
 		for(int i=0; i<list.length; i++){
 			File file = new File(list[i].getAbsolutePath());
 			String[] mergeArgs = new String[1];
 			mergeArgs[0] = file.getAbsolutePath();
 			ExperimentMerging.main(mergeArgs);
 		}
-
+		
+		System.out.println("\nAlgorithm applicated to all folders...\n");
+		
 		activity_temp = new Vector<ActivityState>();
 
 		System.out.print("Merging guitrees");
@@ -115,9 +122,9 @@ public class TotalMerging {
 		xmlFilePath = args[0].replace(".zip", File.separator + "guitree.xml" );
 
 		gtManager = new GuiTreeManager(guitree_temp,xmlFilePath);
-		
+
 		System.out.println("Merging Events...");
-		
+
 		gtManager.TransitionMerging();
 
 		gtManager.PrintGuiTreeOnXmlFile(gtManager.getDoc(),xmlFilePath);
@@ -130,22 +137,21 @@ public class TotalMerging {
 
 
 	}
-	
-	
+
 	static File[] getFoldersList(String path)
 	{
 		File file = new File(path);
-		
+
 		Vector<File> vettore = new Vector<File>(0);
-		
+
 		File[] tempList = file.listFiles();
-		
+
 		for(int i=0; i<tempList.length;i++)
 		{
 			if(tempList[i].isDirectory()){
 				File[] fileTempList = tempList[i].listFiles();
 				boolean act = false, gui=false;
-				
+
 				for(int j=0; j<fileTempList.length;j++){
 					if(fileTempList[j].getName().equals("activities.xml"))
 						act=true;
@@ -158,13 +164,13 @@ public class TotalMerging {
 					File[] temp = getFoldersList(tempList[i].getAbsolutePath());
 					for (int h=0;h<temp.length;h++)
 						vettore.add(temp[h]);
-					}
+				}
 			}
 		}
-		 tempList = new File[vettore.size()];
-		 for(int k=0; k<vettore.size();k++)
-			 tempList[k]=vettore.get(k);
-		 return tempList;
+		tempList = new File[vettore.size()];
+		for(int k=0; k<vettore.size();k++)
+			tempList[k]=vettore.get(k);
+		return tempList;
 	}
 
 	static List<ActivityState> compareActivities(List<ActivityState> temp, List<ActivityState> current){
