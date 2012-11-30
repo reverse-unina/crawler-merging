@@ -49,13 +49,11 @@ public class TotalMerging {
 		unZipIt(args[0]);
 
 		//Fa una lista di ciò che è contenuto nel file estratto
-		File[] list = new File(args[0].replace(".zip", "/files")).listFiles();
+		File[] list = getFoldersList(args[0].replace(".zip", ""));
 
 		//Per ogni CARTELLA (non file) applica l'algoritmo di Merging.
 		for(int i=0; i<list.length; i++){
 			File file = new File(list[i].getAbsolutePath());
-			if (file.isDirectory()==false)
-				continue;
 			String[] mergeArgs = new String[1];
 			mergeArgs[0] = file.getAbsolutePath();
 			ExperimentMerging.main(mergeArgs);
@@ -114,7 +112,7 @@ public class TotalMerging {
 			}
 		}
 
-		xmlFilePath = args[0].replace(".zip", File.separator + "files" + File.separator + "guitree.xml" );
+		xmlFilePath = args[0].replace(".zip", File.separator + "guitree.xml" );
 
 		gtManager = new GuiTreeManager(guitree_temp,xmlFilePath);
 		
@@ -131,6 +129,42 @@ public class TotalMerging {
 		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));
 
 
+	}
+	
+	
+	static File[] getFoldersList(String path)
+	{
+		File file = new File(path);
+		
+		Vector<File> vettore = new Vector<File>(0);
+		
+		File[] tempList = file.listFiles();
+		
+		for(int i=0; i<tempList.length;i++)
+		{
+			if(tempList[i].isDirectory()){
+				File[] fileTempList = tempList[i].listFiles();
+				boolean act = false, gui=false;
+				
+				for(int j=0; j<fileTempList.length;j++){
+					if(fileTempList[j].getName().equals("activities.xml"))
+						act=true;
+					if(fileTempList[j].getName().equals("guitree.xml"))
+						gui=true;					
+				}
+				if(act&&gui)
+					vettore.add(tempList[i]);
+				else{
+					File[] temp = getFoldersList(tempList[i].getAbsolutePath());
+					for (int h=0;h<temp.length;h++)
+						vettore.add(temp[h]);
+					}
+			}
+		}
+		 tempList = new File[vettore.size()];
+		 for(int k=0; k<vettore.size();k++)
+			 tempList[k]=vettore.get(k);
+		 return tempList;
 	}
 
 	static List<ActivityState> compareActivities(List<ActivityState> temp, List<ActivityState> current){
