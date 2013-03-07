@@ -41,13 +41,25 @@ import com.nofatclips.crawler.strategy.comparator.EditTextComparator;
 import com.nofatclips.crawler.strategy.comparator.NameComparator;
 import com.nofatclips.crawler.strategy.comparator.NullComparator;
 
-public class ActivityManager {
+public class ActivityManager extends Thread{
 
 	/* Internal fields */
 
 	private List<ActivityState> activities;
 	private String xmlFilePath;
 	private Document doc;
+
+
+	@Override
+	public void run() {
+		super.run();
+		if(this.activities!=null)
+			this.ActivityMerging();
+		if(this.doc!=null&&this.activities!=null){
+			this.updateDocument(this.doc, this.activities);
+			this.PrintActivitiesOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_merged.xml"));
+		}
+	}
 
 	/***CONSTRUCTORS****/
 
@@ -69,9 +81,9 @@ public class ActivityManager {
 	ActivityManager(String activitiesFilePath){
 		super();
 		this.activities = this.ActivityExtractor(activitiesFilePath);
-		this.xmlFilePath = null;
-		this.doc = null;
-	}
+		this.xmlFilePath = activitiesFilePath;
+		setDocByXml();
+		}
 
 	/***UTILITY FUNCTIONS***/
 
@@ -91,26 +103,27 @@ public class ActivityManager {
 		}
 
 		FileInputStream stream = null;
-		
+
 		while(doc==null){
 			try {
-
-				if(new File(filePath.replace(".xml", "_fixed.xml")).exists())
-					stream = new FileInputStream(filePath.replace(".xml", "_fixed.xml"));
+				System.out.println("lol"+filePath);
+				if(new File(filePath.replace(".xml", "_fixed.xml")).exists()){ //activities file's fix has been already performed
+					System.out.println("lol");
+					stream = new FileInputStream(filePath.replace(".xml", "_fixed.xml"));}
 				else
-					stream = new FileInputStream(filePath);
-			
+					stream = new FileInputStream(filePath); //parsing will generate exception if file's format is not as expected
+
 				doc = builder.parse(stream);
-				
+
 				stream.close();
-				
+
 			} catch (SAXException e) {
 				System.out.println("\nThe source file doesn't have the right format." +
 						"\n\nTrying to modify the source file\n");
 				doc = null;
-				
+
 				filePath = fixFile(new File(filePath));
-				
+
 			} catch (IOException e) {
 				System.out.println("An error occured :" + e);
 				break;
@@ -195,7 +208,7 @@ public class ActivityManager {
 		Comparator comparator = selectComparator();
 
 		System.out.println("Using a " + comparator.getClass().toString().split("comparator.")[1] + "\n");
-		
+
 		for(int i=0; i<count; i++)
 		{
 			ListIterator<ActivityState> iterator = activities.listIterator(i);
@@ -298,6 +311,35 @@ public class ActivityManager {
 		return 0;
 	}
 
+	public boolean setDocByXml(){
+		if (doc==null){
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = null;
+			try
+			{
+				factory.setValidating(true);
+				factory.setIgnoringElementContentWhitespace(true);
+				builder = factory.newDocumentBuilder();			
+			}
+			catch (ParserConfigurationException e)
+			{
+				e.printStackTrace();
+			}
+
+			try {
+				FileInputStream stream = new FileInputStream(this.xmlFilePath);
+				doc = builder.parse(stream);
+				stream.close();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return true;
+		}
+		return false;
+	}
+	
 	public void updateDocument(Document _doc, List<ActivityState> _activities)
 	{
 		Element root = _doc.getDocumentElement();
@@ -338,7 +380,8 @@ public class ActivityManager {
 
 		xmlFilePath = filename;
 	}
-
+	
+	//UNUSED
 	public void printActivities(List<ActivityState> list)
 	{
 		Iterator<ActivityState> iterator = list.iterator();
@@ -355,6 +398,7 @@ public class ActivityManager {
 		}		
 	}
 
+	//UNUSED
 	public void printActivities()
 	{
 		printActivities(activities);

@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Vector;
+import java.util.regex.PatternSyntaxException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,6 +22,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPathExpressionException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -26,62 +30,107 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import com.nofatclips.androidtesting.model.ActivityState;
+import com.unina.tata.filemanager.FileManagerFSM;
 
-public class GuiTreeManager {
+public class GuiTreeManager extends Observable implements Runnable{
 
 	private String xmlFilePath;
 	private Document doc;
+	private ActivityManager aManager;
+	public static final int ACTIVITIES = 0;
+	public static final int GUITREE = 1;
 
-	/***CONSTRUCTOR****/
+	@Override
+	public void run() {
+		this.mergeGuitree();
+	}
+
+	/***CONSTRUCTORS****/
 
 	public GuiTreeManager() {
 		super();
 		this.xmlFilePath = null;
 		this.doc = null;
+		this.aManager = null;
 	}
-	public GuiTreeManager(Document doc, String filePath) {
+
+	public GuiTreeManager(Document doc, String filePath, Observer o) {
 		super();
 		this.xmlFilePath = filePath;
 		this.doc = doc;
+		this.aManager = new ActivityManager(filePath.replace("guitree.xml", "activities.xml"));
+		this.addObserver(o);
+	}
+
+	public GuiTreeManager(String filePath, Observer o) {
+		super();
+		this.xmlFilePath = filePath;
+		this.setDocByXml();
+		this.aManager = new ActivityManager(filePath.replace("guitree.xml", "activities.xml"));
+		this.addObserver(o);
+	}
+
+	public GuiTreeManager(String filePath) {
+		super();
+		this.xmlFilePath = filePath;
+		this.setDocByXml();
+		this.aManager = new ActivityManager(filePath.replace("guitree.xml", "activities.xml"));
 	}
 
 
 	/***UTILITY FUNCTIONS***/
 
-	public void ReplaceActivitiesOnGuiTree(String guiTree, List<ActivityState> activities)
-	{
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder = null;
-		try
-		{
-			factory.setValidating(true);
-			factory.setIgnoringElementContentWhitespace(true);
-			builder = factory.newDocumentBuilder();			
-		}
-		catch (ParserConfigurationException e)
-		{
-			e.printStackTrace();
-		}
-
-		FileInputStream stream = null;
-
-		doc= null;
+	public void mergeGuitree(){
+		this.aManager.start();
 
 		try {
-			stream = new FileInputStream(guiTree);
-			doc = builder.parse(stream);
-			stream.close();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+			this.aManager.join();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		ReplaceEntries(doc.getDocumentElement(),activities);
-
+		if(this.countObservers()!=0)
+			this.notifyObservers(GuiTreeManager.ACTIVITIES);
+		this.ReplaceActivitiesOnGuitree(this.doc.getDocumentElement(), aManager.getActivities());
+		this.PrintGuiTreeOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_intermediate.xml"));
+		this.TransitionMerging();
+		if(this.countObservers()!=0)
+			this.notifyObservers(GuiTreeManager.GUITREE);
+		System.out.println(this.xmlFilePath);
+		this.PrintGuiTreeOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_merged.xml"));
+		this.GetDotFile(this.xmlFilePath.replace(".xml", "_merged.xml"));
 	}
 
-	private void ReplaceEntries(Element guiTree, List<ActivityState> activities)
+	//set this.doc depending on this.xmlFilePath
+	public boolean setDocByXml(){
+		if (doc==null){
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = null;
+			try
+			{
+				factory.setValidating(true);
+				factory.setIgnoringElementContentWhitespace(true);
+				builder = factory.newDocumentBuilder();			
+			}
+			catch (ParserConfigurationException e)
+			{
+				e.printStackTrace();
+			}
+
+			try {
+				FileInputStream stream = new FileInputStream(this.xmlFilePath);
+				doc = builder.parse(stream);
+				stream.close();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public void ReplaceActivitiesOnGuitree(Element guiTree, List<ActivityState> activities)
 	{
 		NodeList startList = guiTree.getElementsByTagName("START_ACTIVITY");
 		NodeList finalList = guiTree.getElementsByTagName("FINAL_ACTIVITY");
@@ -138,7 +187,7 @@ public class GuiTreeManager {
 
 		System.out.println("A new File created: "+filename);
 
-		xmlFilePath = filename;
+		//xmlFilePath = filename;
 	}
 
 	public void TransitionMerging(){
@@ -181,6 +230,28 @@ public class GuiTreeManager {
 		System.out.println("Done");
 	}
 
+	public void GetDotFile(String path){
+
+		String[] string = new String[2];
+
+		string[0] = path;
+		string[1] = path.replace(new File(path).getName(), "guitree");
+
+		try {
+			FileManagerFSM.main(string);
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (TransformerException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (PatternSyntaxException e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	/***GETTERS AND SETTERS***/
 
@@ -201,23 +272,24 @@ public class GuiTreeManager {
 	}
 
 
+	/**
+	 * @return the aManager
+	 */
+	public ActivityManager getaManager() {
+		return aManager;
+	}
+
 	/***MAIN***/
 
 	public static void main(String[] args) {
 
 		long startTime = System.currentTimeMillis();
 
-		if(args[0].equals("help"))
-			System.out.println("Parameters should be guitree.xml and activities.xml");
+		if(args[0].equals("help")||args==null)
+			System.out.println("Parameter should be 'guitree.xml' 's path");
 		else{
-			GuiTreeManager manager = new GuiTreeManager();
-			ActivityManager aManager = new ActivityManager();
-			aManager.ActivityExtractor(args[1]);
-			aManager.ActivityMerging();
-			manager.ReplaceActivitiesOnGuiTree(args[0], aManager.getActivities());
-			manager.PrintGuiTreeOnXmlFile(manager.doc, args[0].replace(".xml", "_intermediate.xml"));
-			manager.TransitionMerging();
-			manager.PrintGuiTreeOnXmlFile(manager.doc, args[0].replace(".xml", "_merged.xml"));
+			GuiTreeManager manager = new GuiTreeManager(args[0]);
+			manager.run();
 		}
 		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));
 
