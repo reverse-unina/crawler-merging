@@ -445,14 +445,11 @@ public class ActivityManager extends Thread{
 		long startTime = System.currentTimeMillis();
 
 		if(args[0].equals("help"))
-			System.out.println("Parameter should be activities.xml");
+			System.out.println("Parameter should be 'activities.xml' 's path");
 		else{
 
-			ActivityManager manager = new ActivityManager();
-			manager.ActivityExtractor(args[0]);
-			manager.ActivityMerging();
-			manager.updateDocument(manager.doc, manager.activities);
-			manager.PrintActivitiesOnXmlFile(manager.doc, args[0].replace(".xml", "_merged.xml"));
+			ActivityManager manager = new ActivityManager(args[0]);
+			manager.start();
 		}
 		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));		
 	}
