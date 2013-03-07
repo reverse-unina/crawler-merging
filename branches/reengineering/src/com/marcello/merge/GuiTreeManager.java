@@ -7,7 +7,6 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
 import java.util.Vector;
 import java.util.regex.PatternSyntaxException;
 
@@ -54,22 +53,20 @@ public class GuiTreeManager extends Observable implements Runnable{
 		this.aManager = null;
 	}
 
-	public GuiTreeManager(Document doc, String filePath, Observer o) {
+	public GuiTreeManager(Document doc, String filePath) {
 		super();
 		this.xmlFilePath = filePath;
 		this.doc = doc;
 		this.aManager = new ActivityManager(filePath.replace("guitree.xml", "activities.xml"));
-		this.addObserver(o);
 	}
 
-	public GuiTreeManager(String filePath, Observer o) {
+	public GuiTreeManager(Document doc) {
 		super();
-		this.xmlFilePath = filePath;
-		this.setDocByXml();
-		this.aManager = new ActivityManager(filePath.replace("guitree.xml", "activities.xml"));
-		this.addObserver(o);
+		this.xmlFilePath = null;
+		this.doc = doc;
+		this.aManager = null;
 	}
-
+	
 	public GuiTreeManager(String filePath) {
 		super();
 		this.xmlFilePath = filePath;
@@ -88,15 +85,16 @@ public class GuiTreeManager extends Observable implements Runnable{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if(this.countObservers()!=0)
-			this.notifyObservers(GuiTreeManager.ACTIVITIES);
+		if(this.countObservers()!=0){
+			this.hasChanged();
+			this.notifyObservers(GuiTreeManager.ACTIVITIES);}
 		this.ReplaceActivitiesOnGuitree(this.doc.getDocumentElement(), aManager.getActivities());
 		this.PrintGuiTreeOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_intermediate.xml"));
 		this.TransitionMerging();
-		if(this.countObservers()!=0)
-			this.notifyObservers(GuiTreeManager.GUITREE);
-		System.out.println(this.xmlFilePath);
 		this.PrintGuiTreeOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_merged.xml"));
+		if(this.countObservers()!=0){
+			this.hasChanged();
+			this.notifyObservers(GuiTreeManager.GUITREE);}
 		this.GetDotFile(this.xmlFilePath.replace(".xml", "_merged.xml"));
 	}
 
