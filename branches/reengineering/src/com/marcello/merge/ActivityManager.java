@@ -106,9 +106,7 @@ public class ActivityManager extends Thread{
 
 		while(doc==null){
 			try {
-				System.out.println("lol"+filePath);
 				if(new File(filePath.replace(".xml", "_fixed.xml")).exists()){ //activities file's fix has been already performed
-					System.out.println("lol");
 					stream = new FileInputStream(filePath.replace(".xml", "_fixed.xml"));}
 				else
 					stream = new FileInputStream(filePath); //parsing will generate exception if file's format is not as expected
