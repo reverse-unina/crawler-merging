@@ -4,14 +4,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Vector;
+import java.util.regex.PatternSyntaxException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -19,126 +25,143 @@ import org.xml.sax.SAXException;
 
 import com.nofatclips.androidtesting.model.ActivityState;
 import com.nofatclips.crawler.model.Comparator;
+import com.unina.tata.filemanager.FileManagerFSM;
 
-public class TotalMerging {
+public class TotalMerging implements Observer{
 
 	/**
 	 * @param args :
 	 * Experiment's zip file (usually named "TestX.zip") path.
 	 */
 
-	static Document activity;
-	static Document guitree_temp;
-	static List<ActivityState> activity_temp;
-	static String xmlFilePath;
+	private Document activity;
+	private Document guitree_temp;
+	private List<ActivityState> activity_temp;
+	private String xmlFilePath;
+	private File[] list;
+	private Hashtable<GuiTreeManager, activityGuitree> stateTable;
+	class activityGuitree{
+		boolean activityCome = false;
+		boolean activityMerged = false;
+		boolean guitreeCome = false;
+		boolean guitreeMerged = false;
+		List<ActivityState> activity = null;
 
-	public static void main(String[] args) {
-
-		long startTime = System.currentTimeMillis();
-
-		if(args.length==0||args[0].equals("-help")){
-			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"(FileInput.zip contains random experiment's folders)");
-			return;
+		/**
+		 * @return the activityCome
+		 */
+		public boolean isActivityCome() {
+			return activityCome;
 		}
-		if (args[0].endsWith(".zip")==false){
-			System.out.println("file .zip not provided, the program will terminate.");
-			return;
+		/**
+		 * @param activityCome the activityCome to set
+		 */
+		public void setActivityCome(boolean activityCome) {
+			this.activityCome = activityCome;
 		}
-
-		//Scompatta il file di input qualora non sia stato giˆ fatto in precedenza
-		unZipIt(args[0]);
-
-		//Fa una lista delle cartelle che contengono i file utili per l'algoritmo di merging (activities.xml e guitree.xml)
-		File[] list = getFoldersList(args[0].replace(".zip", ""));
-		System.out.println("Trovate "+list.length + " cartelle adatte.");
-		
-		//Stampa il nome delle cartelle a cui sarˆ applicato l'algoritmo
-		//for(int i=0;i<list.length;i++)		
-			//System.out.println(list[i].getName());
-
-		//Per ogni CARTELLA  applica l'algoritmo di Merging.
-		for(int i=0; i<list.length; i++){
-			File file = new File(list[i].getAbsolutePath());
-			String[] mergeArgs = new String[1];
-			mergeArgs[0] = file.getAbsolutePath();
-			ExperimentMerging.main(mergeArgs);
+		/**
+		 * @return the activityMerged
+		 */
+		public boolean isActivityMerged() {
+			return activityMerged;
 		}
-		
-		System.out.println("\nAlgorithm applicated to all folders...\n");
-		
-		activity_temp = new Vector<ActivityState>();
-
-		System.out.print("Merging guitrees");
-
-		ActivityManager aManager = null;
-		GuiTreeManager gtManager = null;
-
-		//Inizia il ciclo di confronto
-		for(int i=0; i<list.length; i++){
-			System.out.print(".");
-			File file = new File(list[i].getAbsolutePath());
-			if (file.isDirectory()==false)
-				continue;
-
-			if(guitree_temp == null&& new File(file.getAbsolutePath()+File.separator+"activities_merged.xml").exists()){
-				aManager = new ActivityManager(file.getAbsolutePath()+File.separator+"activities_merged.xml");
-				List<ActivityState> activities = aManager.getActivities();			
-
-				try {
-					guitree_temp = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file.getAbsolutePath()+File.separator+"guitree_merged.xml");
-				} catch (SAXException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (ParserConfigurationException e) {
-					e.printStackTrace();
-				}
-				activity_temp.addAll(activities);
-				aManager = null;
-				continue;
-			}
-
-			if(new File(file.getAbsolutePath()+File.separator+"activities_fixed.xml").exists()){
-				//estrae le activity dal file.
-				aManager = new ActivityManager(file.getAbsolutePath()+File.separator+"activities_merged.xml");
-
-				//confronto con le activity temporanee
-				List<ActivityState> activities = compareActivities(activity_temp, aManager.getActivities());
-
-
-				gtManager = new GuiTreeManager();
-				gtManager.ReplaceActivitiesOnGuiTree(file.getAbsolutePath()+File.separator+"guitree_merged.xml", activities);
-
-				NodeList trace = gtManager.getDoc().getDocumentElement().getElementsByTagName("TRACE");
-				for(int j=0; j<trace.getLength(); j++){
-					guitree_temp.getDocumentElement().appendChild(guitree_temp.importNode(trace.item(j), true));	
-				}
-				activity_temp.addAll(activities);
-				gtManager = null;
-				aManager = null;
-			}
+		/**
+		 * @param activityMerged the activityMerged to set
+		 */
+		public void setActivityMerged(boolean activityMerged) {
+			this.activityMerged = activityMerged;
 		}
-
-		xmlFilePath = args[0].replace(".zip", File.separator + "guitree.xml" );
-
-		gtManager = new GuiTreeManager(guitree_temp,xmlFilePath);
-
-		System.out.println("Merging Events...");
-
-		gtManager.TransitionMerging();
-
-		gtManager.PrintGuiTreeOnXmlFile(gtManager.getDoc(),xmlFilePath);
-
-		System.gc();
-
-		ExperimentMerging.GetDotFile(xmlFilePath);
-
-		System.out.println("Elaboration done. Time elapsed (sec): " + (int)Math.floor((System.currentTimeMillis() - startTime)/1000));
-
+		/**
+		 * @return the guitreeCome
+		 */
+		public boolean isGuitreeCome() {
+			return guitreeCome;
+		}
+		/**
+		 * @param guitreeCome the guitreeCome to set
+		 */
+		public void setGuitreeCome(boolean guitreeCome) {
+			this.guitreeCome = guitreeCome;
+		}
+		/**
+		 * @return the guitreeMerged
+		 */
+		public boolean isGuitreeMerged() {
+			return guitreeMerged;
+		}
+		/**
+		 * @param guitreeMerged the guitreeMerged to set
+		 */
+		public void setGuitreeMerged(boolean guitreeMerged) {
+			this.guitreeMerged = guitreeMerged;
+		}
+		/**
+		 * @return the activity
+		 */
+		public List<ActivityState> getActivity() {
+			return activity;
+		}
+		/**
+		 * @param activity the activity to set
+		 */
+		public void setActivity(List<ActivityState> activity) {
+			this.activity = activity;
+		}
 
 	}
 
-	static File[] getFoldersList(String path)
+
+	public TotalMerging() {
+		super();
+		this.activity = null;
+		this.guitree_temp = null;
+		this.activity_temp = null;
+		this.xmlFilePath = null;
+		this.list = null;
+		this.stateTable = new Hashtable<GuiTreeManager, activityGuitree>();
+	}
+
+	public void mergeTransitions(){
+
+		System.out.println("\nAlgorithm applicated to all folders...\n");
+
+		GuiTreeManager GTManager = new GuiTreeManager(this.guitree_temp);
+
+		System.out.println("Merging Events...");
+
+		GTManager.TransitionMerging();
+
+		GTManager.PrintGuiTreeOnXmlFile(GTManager.getDoc(),this.xmlFilePath);
+
+		this.GetDotFile(this.xmlFilePath);
+
+
+	}	
+
+	public void GetDotFile(String path){
+
+		String[] string = new String[2];
+
+		string[0] = path;
+		string[1] = path.replace(new File(path).getName(), "guitree");
+
+		try {
+			FileManagerFSM.main(string);
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (TransformerException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (PatternSyntaxException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public File[] getFoldersList(String path)
 	{
 		File file = new File(path);
 
@@ -173,7 +196,7 @@ public class TotalMerging {
 		return tempList;
 	}
 
-	static List<ActivityState> compareActivities(List<ActivityState> temp, List<ActivityState> current){
+	public List<ActivityState> compareActivities(List<ActivityState> temp, List<ActivityState> current){
 
 		ListIterator<ActivityState> iteratorTemp = temp.listIterator();
 		ListIterator<ActivityState> iteratorCurrent = current.listIterator();
@@ -211,7 +234,7 @@ public class TotalMerging {
 		return current;
 	}
 
-	public static void unZipIt(String zipFile){
+	public void unZipIt(String zipFile){
 
 		String outputFolder = zipFile.split(".zip")[0]+File.separator;
 
@@ -272,5 +295,98 @@ public class TotalMerging {
 			ex.printStackTrace();
 		}
 
+	}
+
+	public void mergeActivities(GuiTreeManager obj){
+		if(this.activity_temp == null){
+			this.activity_temp = new Vector<ActivityState>();
+			this.activity_temp.addAll(obj.getaManager().getActivities());
+			this.stateTable.get(obj).setActivity(obj.getaManager().getActivities());
+		}
+		else{
+			this.stateTable.get(obj).setActivity(compareActivities(activity_temp, obj.getaManager().getActivities()));
+			this.activity_temp.addAll(stateTable.get(obj).getActivity());
+		}
+		this.stateTable.get(obj).setActivityMerged(true);
+	}
+
+	public void updateGuitree(GuiTreeManager obj){
+		if(this.guitree_temp == null){
+			try {
+				guitree_temp = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(obj.getXmlFilePath().replace(".xml", "_merged.xml"));
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ParserConfigurationException e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			obj.ReplaceActivitiesOnGuitree(obj.getDoc().getDocumentElement(), this.stateTable.get(obj).getActivity());
+
+			NodeList trace = obj.getDoc().getDocumentElement().getElementsByTagName("TRACE");
+			for(int j=0; j<trace.getLength(); j++){
+				guitree_temp.getDocumentElement().appendChild(guitree_temp.importNode(trace.item(j), true));	
+			}
+
+		}
+		this.stateTable.get(obj).setGuitreeMerged(true);
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		//System.out.println("notification received from " + o.toString());
+		if(o.getClass()==ThreadMonitor.class){
+			this.mergeTransitions();
+		}
+		else{
+
+			GuiTreeManager obj = (GuiTreeManager) o;			
+
+			if((int) arg == GuiTreeManager.ACTIVITIES){
+				if (stateTable.containsKey(obj)==false)
+					stateTable.put(obj, new activityGuitree());
+				stateTable.get(obj).setActivityCome(true);
+				mergeActivities(obj);
+			}
+
+
+			else if((int) arg == GuiTreeManager.GUITREE){
+				if (stateTable.containsKey(obj)==false)
+					stateTable.put(obj, new activityGuitree());
+				stateTable.get(obj).setGuitreeCome(true);
+				if(stateTable.get(obj).isActivityCome()&&stateTable.get(obj).isActivityMerged())
+					updateGuitree(obj);
+			}
+		}
+	}
+
+	/**
+	 * @return the xmlFilePath
+	 */
+	public String getXmlFilePath() {
+		return xmlFilePath;
+	}
+
+	/**
+	 * @return the list
+	 */
+	public File[] getList() {
+		return list;
+	}
+
+	/**
+	 * @param xmlFilePath the xmlFilePath to set
+	 */
+	public void setXmlFilePath(String xmlFilePath) {
+		this.xmlFilePath = xmlFilePath;
+	}
+
+	/**
+	 * @param list the list to set
+	 */
+	public void setList(File[] list) {
+		this.list = list;
 	}
 }

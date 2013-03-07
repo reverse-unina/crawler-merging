@@ -86,14 +86,14 @@ public class GuiTreeManager extends Observable implements Runnable{
 			e.printStackTrace();
 		}
 		if(this.countObservers()!=0){
-			this.hasChanged();
+			this.setChanged();
 			this.notifyObservers(GuiTreeManager.ACTIVITIES);}
 		this.ReplaceActivitiesOnGuitree(this.doc.getDocumentElement(), aManager.getActivities());
 		this.PrintGuiTreeOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_intermediate.xml"));
 		this.TransitionMerging();
 		this.PrintGuiTreeOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_merged.xml"));
 		if(this.countObservers()!=0){
-			this.hasChanged();
+			this.setChanged();
 			this.notifyObservers(GuiTreeManager.GUITREE);}
 		this.GetDotFile(this.xmlFilePath.replace(".xml", "_merged.xml"));
 	}

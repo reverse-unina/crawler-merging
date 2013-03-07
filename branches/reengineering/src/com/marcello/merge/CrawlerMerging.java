@@ -1,107 +1,56 @@
 package com.marcello.merge;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.io.File;
 
 public class CrawlerMerging {
 
-	private JFrame frame;
-	private JTextField txtInsertFilesPath;
-
 	/**
-	 * Launch the application.
+	 * @param args
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CrawlerMerging window = new CrawlerMerging();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+
+		TotalMerging tMerging = new TotalMerging();
+
+		tMerging.setXmlFilePath(args[0].replace(".zip", File.separator + "guitree.xml" ));
+
+		if(args.length==0||args[0].equals("-help")){
+			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"(FileInput.zip contains random experiment's folders)");
+			return;
+		}
+		if (args[0].endsWith(".zip")==false){
+			System.out.println("file .zip not provided, the program will terminate.");
+			return;
+		}
+
+		//Scompatta il file di input qualora non sia stato giˆ fatto in precedenza
+		tMerging.unZipIt(args[0]);
+
+		//Fa una lista delle cartelle che contengono i file utili per l'algoritmo di merging (activities.xml e guitree.xml)
+		tMerging.setList(tMerging.getFoldersList(args[0].replace(".zip", "")));
+		System.out.println("Trovate "+tMerging.getList().length + " cartelle adatte.");
+
+		//Stampa il nome delle cartelle a cui sarˆ applicato l'algoritmo
+		//for(int i=0;i<list.length;i++)		
+		//System.out.println(list[i].getName());
+
+		//definisci l'insieme di thread che gestirˆ il processo di merging
+		Thread[] threads = new Thread[tMerging.getList().length];
+
+		//istanzia un monitor per supervisionare i thread
+		ThreadMonitor monitor = new ThreadMonitor(threads);
+		monitor.addObserver(tMerging);
+		Thread mon = new Thread(monitor);
+
+		//Per ogni CARTELLA  applica l'algoritmo di Merging.
+		for(int i=0; i<threads.length; i++){
+			GuiTreeManager GTManager = new GuiTreeManager(tMerging.getList()[i].getAbsolutePath()+File.separator+"guitree.xml");
+			GTManager.addObserver(tMerging);
+			threads[i] = new Thread(GTManager);
+			threads[i].start();
+		}
+
+		mon.start();
+
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public CrawlerMerging() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JLabel lblCrawlerMerging = new JLabel("Crawler Merging");
-		lblCrawlerMerging.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCrawlerMerging.setBounds(6, 6, 438, 16);
-		frame.getContentPane().add(lblCrawlerMerging);
-		
-		JLabel lblDevelopedByMarcello = new JLabel("Developed by Marcello Traiola");
-		lblDevelopedByMarcello.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
-		lblDevelopedByMarcello.setBounds(284, 256, 160, 16);
-		frame.getContentPane().add(lblDevelopedByMarcello);
-		
-		txtInsertFilesPath = new JTextField();
-		txtInsertFilesPath.setText("Insert file's path here");
-		txtInsertFilesPath.setBounds(6, 70, 279, 28);
-		frame.getContentPane().add(txtInsertFilesPath);
-		txtInsertFilesPath.setColumns(10);
-		
-		JButton btnBrowse = new JButton("Browse");
-		btnBrowse.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				JFileChooser chooser = new JFileChooser();
-				chooser.showOpenDialog(null);
-				txtInsertFilesPath.setText(chooser.getSelectedFile().getAbsolutePath());
-			}
-		});
-		btnBrowse.setBounds(327, 71, 117, 29);
-		frame.getContentPane().add(btnBrowse);
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
-		chckbxNewCheckBox.setBounds(6, 156, 128, 23);
-		frame.getContentPane().add(chckbxNewCheckBox);
-		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("New check box");
-		chckbxNewCheckBox_1.setBounds(146, 156, 128, 23);
-		frame.getContentPane().add(chckbxNewCheckBox_1);
-		
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("New check box");
-		chckbxNewCheckBox_2.setBounds(284, 156, 128, 23);
-		frame.getContentPane().add(chckbxNewCheckBox_2);
-		
-		JButton btnStart = new JButton("Start!");
-		btnStart.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				String[] arg = new String[1];
-				arg[0] = txtInsertFilesPath.getText();
-				TotalMerging.main(arg);
-			}
-		});
-		btnStart.setBounds(310, 215, 117, 29);
-		frame.getContentPane().add(btnStart);
-	}
 }
