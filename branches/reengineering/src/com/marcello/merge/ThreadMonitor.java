@@ -25,7 +25,6 @@ public class ThreadMonitor extends Observable implements Runnable{
 			this.setChanged();
 			this.notifyObservers();
 		}
-		System.out.println("monitor: notification sent");
 	}
 
 }
