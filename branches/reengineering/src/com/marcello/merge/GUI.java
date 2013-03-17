@@ -6,12 +6,18 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -47,6 +53,40 @@ public class GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		class Text extends JTextArea{
+			JTextArea textArea;
+			private void updateTextArea(final String text) {
+				  SwingUtilities.invokeLater(new Runnable() {
+				    public void run() {
+				      textArea.append(text);
+				    }
+				  });
+				}
+				 
+				private void redirectSystemStreams() {
+				  OutputStream out = new OutputStream() {
+				    @Override
+				    public void write(int b) throws IOException {
+				      updateTextArea(String.valueOf((char) b));
+				    }
+				 
+				    @Override
+				    public void write(byte[] b, int off, int len) throws IOException {
+				      updateTextArea(new String(b, off, len));
+				    }
+				 
+				    @Override
+				    public void write(byte[] b) throws IOException {
+				      write(b, 0, b.length);
+				    }
+				  };
+				 
+				  System.setOut(new PrintStream(out, true));
+				  System.setErr(new PrintStream(out, true));
+				}
+		}
+		Text text = new Text();
+		text.redirectSystemStreams();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,5 +146,12 @@ public class GUI {
 		});
 		btnStart.setBounds(310, 215, 117, 29);
 		frame.getContentPane().add(btnStart);
+		JFrame outputFrame = new JFrame("Output");
+		outputFrame.add(text.textArea);
+		
+		outputFrame.setBounds(100, 100, 500, 350);
+		outputFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		outputFrame.getContentPane().setLayout(null);
+		outputFrame.setVisible(true);
 	}
 }
