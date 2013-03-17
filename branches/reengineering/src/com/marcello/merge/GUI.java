@@ -1,11 +1,13 @@
 package com.marcello.merge;
 
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -20,12 +22,59 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Observable;
 import java.util.Observer;
+import java.awt.BorderLayout;
+import javax.swing.JSplitPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import javax.swing.border.EmptyBorder;
 
 public class GUI {
 
 	private JFrame frame;
 	private JTextField txtInsertFilesPath;
+	private JLabel state;
+	private JFrame outputFrame;
+	class Text extends JTextArea{
 
+		JTextArea textArea;
+
+		public Text(){
+			this.textArea = new JTextArea();
+		}
+
+		private void updateTextArea(final String text) {
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					textArea.append(text);
+				}
+			});
+		}
+
+		private void redirectSystemStreams() {
+			OutputStream out = new OutputStream() {
+				@Override
+				public void write(int b) throws IOException {
+					updateTextArea(String.valueOf((char) b));
+				}
+
+				@Override
+				public void write(byte[] b, int off, int len) throws IOException {
+					updateTextArea(new String(b, off, len));
+				}
+
+				@Override
+				public void write(byte[] b) throws IOException {
+					write(b, 0, b.length);
+				}
+			};
+
+			System.setOut(new PrintStream(out, true));
+			System.setErr(new PrintStream(out, true));
+		}
+	}
+	private Text text;
 	/**
 	 * Launch the application.
 	 */
@@ -35,6 +84,7 @@ public class GUI {
 				try {
 					GUI window = new GUI();
 					window.frame.setVisible(true);
+					//window.outputFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -53,62 +103,24 @@ public class GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		class Text extends JTextArea{
-			JTextArea textArea;
-			private void updateTextArea(final String text) {
-				  SwingUtilities.invokeLater(new Runnable() {
-				    public void run() {
-				      textArea.append(text);
-				    }
-				  });
-				}
-				 
-				private void redirectSystemStreams() {
-				  OutputStream out = new OutputStream() {
-				    @Override
-				    public void write(int b) throws IOException {
-				      updateTextArea(String.valueOf((char) b));
-				    }
-				 
-				    @Override
-				    public void write(byte[] b, int off, int len) throws IOException {
-				      updateTextArea(new String(b, off, len));
-				    }
-				 
-				    @Override
-				    public void write(byte[] b) throws IOException {
-				      write(b, 0, b.length);
-				    }
-				  };
-				 
-				  System.setOut(new PrintStream(out, true));
-				  System.setErr(new PrintStream(out, true));
-				}
-		}
-		Text text = new Text();
-		text.redirectSystemStreams();
-		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 350);
+		
+		frame = new JFrame("Crawler Merging");
+		frame.setBounds(100, 100, 500, 170);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 
-		JLabel lblCrawlerMerging = new JLabel("Crawler Merging");
-		lblCrawlerMerging.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCrawlerMerging.setBounds(6, 6, 438, 16);
-		frame.getContentPane().add(lblCrawlerMerging);
-
-		JLabel lblDevelopedByMarcello = new JLabel("Developed by Marcello Traiola");
-		lblDevelopedByMarcello.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
-		lblDevelopedByMarcello.setBounds(284, 256, 160, 16);
-		frame.getContentPane().add(lblDevelopedByMarcello);
+		JPanel panel = new JPanel();
+		panel.setBorder(new EmptyBorder(10, 0, 10, 0));
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
 
 		txtInsertFilesPath = new JTextField();
+		panel.add(txtInsertFilesPath);
 		txtInsertFilesPath.setText("Insert file's path here");
 		txtInsertFilesPath.setBounds(6, 70, 279, 28);
-		frame.getContentPane().add(txtInsertFilesPath);
-		txtInsertFilesPath.setColumns(10);
+		txtInsertFilesPath.setColumns(20);
 
 		JButton btnBrowse = new JButton("Browse");
+		panel.add(btnBrowse);
 		btnBrowse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
@@ -118,9 +130,13 @@ public class GUI {
 			}
 		});
 		btnBrowse.setBounds(327, 71, 117, 29);
-		frame.getContentPane().add(btnBrowse);
 
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new EmptyBorder(10, 0, 0, 0));
+		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
+		
 		JButton btnStart = new JButton("Start!");
+		panel_1.add(btnStart);
 		btnStart.addMouseListener(new MouseAdapter() {
 
 			@Override
@@ -138,6 +154,8 @@ public class GUI {
 					merging.addObserver(new obs());
 					Thread t = new Thread(merging);
 					t.start();
+					state.setText("Executing...");
+					state.setVisible(true);
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Select file's path first");
@@ -145,13 +163,34 @@ public class GUI {
 			}
 		});
 		btnStart.setBounds(310, 215, 117, 29);
-		frame.getContentPane().add(btnStart);
-		JFrame outputFrame = new JFrame("Output");
-		outputFrame.add(text.textArea);
 		
-		outputFrame.setBounds(100, 100, 500, 350);
+		state = new JLabel("State");
+		panel_1.add(state);
+		state.setVisible(false);
+
+		JPanel panel_2 = new JPanel();
+		frame.getContentPane().add(panel_2, BorderLayout.SOUTH);
+
+		JLabel lblDevelopedByMarcello = new JLabel("Developed by Marcello Traiola");
+		panel_2.add(lblDevelopedByMarcello);
+		lblDevelopedByMarcello.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
+		lblDevelopedByMarcello.setBounds(284, 256, 160, 16);
+		
+		frame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{txtInsertFilesPath, btnBrowse, btnStart, lblDevelopedByMarcello}));
+		/*	
+		text = new Text();
+		text.redirectSystemStreams();
+		
+		outputFrame = new JFrame("Output");
+		outputFrame.setBounds(600, 100, 500, 350);
 		outputFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		outputFrame.getContentPane().setLayout(null);
-		outputFrame.setVisible(true);
+		
+		JScrollPane scroll = new JScrollPane();
+		scroll.add(text.textArea);
+		scroll.setVisible(true);
+		scroll.setBounds(outputFrame.getBounds());
+		
+		outputFrame.getContentPane().add(scroll);*/
 	}
 }
