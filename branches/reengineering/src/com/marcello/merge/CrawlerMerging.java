@@ -1,8 +1,9 @@
 package com.marcello.merge;
 
 import java.io.File;
+import java.util.Observable;
 
-public class CrawlerMerging extends Thread {
+public class CrawlerMerging extends Observable implements Runnable {
 
 	private String arg;
 	
@@ -28,6 +29,10 @@ public class CrawlerMerging extends Thread {
 		}*/
 		if (arg.endsWith(".zip")==false){
 			System.out.println("file .zip not provided, the program will terminate.");
+			if(this.countObservers()!=0){
+				this.setChanged();
+				this.notifyObservers("Please, provide a .zip file");
+			}				
 			return;
 		}
 
