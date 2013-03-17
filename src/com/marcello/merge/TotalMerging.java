@@ -29,12 +29,6 @@ import com.unina.tata.filemanager.FileManagerFSM;
 
 public class TotalMerging implements Observer{
 
-	/**
-	 * @param args :
-	 * Experiment's zip file (usually named "TestX.zip") path.
-	 */
-
-	private Document activity;
 	private Document guitree_temp;
 	private List<ActivityState> activity_temp;
 	private String xmlFilePath;
@@ -113,7 +107,6 @@ public class TotalMerging implements Observer{
 
 	public TotalMerging() {
 		super();
-		this.activity = null;
 		this.guitree_temp = null;
 		this.activity_temp = null;
 		this.xmlFilePath = null;
