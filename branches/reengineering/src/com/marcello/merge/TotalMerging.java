@@ -337,7 +337,7 @@ public class TotalMerging implements Observer{
 
 			GuiTreeManager obj = (GuiTreeManager) o;			
 
-			if((int) arg == GuiTreeManager.ACTIVITIES){
+			if(((Integer)arg).intValue() == GuiTreeManager.ACTIVITIES){
 				if (stateTable.containsKey(obj)==false)
 					stateTable.put(obj, new activityGuitree());
 				stateTable.get(obj).setActivityCome(true);
@@ -345,7 +345,7 @@ public class TotalMerging implements Observer{
 			}
 
 
-			else if((int) arg == GuiTreeManager.GUITREE){
+			else if(((Integer)arg).intValue() == GuiTreeManager.GUITREE){
 				if (stateTable.containsKey(obj)==false)
 					stateTable.put(obj, new activityGuitree());
 				stateTable.get(obj).setGuitreeCome(true);
