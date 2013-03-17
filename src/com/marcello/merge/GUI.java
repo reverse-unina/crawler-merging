@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Observable;
+import java.util.Observer;
 
 public class GUI {
 
@@ -46,7 +48,7 @@ public class GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 500, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -84,10 +86,18 @@ public class GUI {
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				String arg;
+				class obs implements Observer{
+					@Override
+					public void update(Observable o, Object arg) {
+						JOptionPane.showMessageDialog(null,(String)arg);
+					}					
+				}
 				if(!txtInsertFilesPath.getText().equals("Insert file's path here")){
 					arg = txtInsertFilesPath.getText();
 					CrawlerMerging merging = new CrawlerMerging(arg);
-					merging.start();
+					merging.addObserver(new obs());
+					Thread t = new Thread(merging);
+					t.start();
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Select file's path first");
