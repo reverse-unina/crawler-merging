@@ -2,31 +2,40 @@ package com.marcello.merge;
 
 import java.io.File;
 
-public class CrawlerMerging {
+public class CrawlerMerging extends Thread {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+	private String arg;
+	
+	public CrawlerMerging(String arg){
+		this.arg = arg;
+	}
+	
+	
+	public CrawlerMerging(){
+		arg = null;
+	}
+
+	@Override
+	public void run() {
 
 		TotalMerging tMerging = new TotalMerging();
 
-		tMerging.setXmlFilePath(args[0].replace(".zip", File.separator + "guitree.xml" ));
+		tMerging.setXmlFilePath(arg.replace(".zip", File.separator + "guitree.xml" ));
 
-		if(args.length==0||args[0].equals("-help")){
+		/*if(arg.length==0||arg[0].equals("-help")){
 			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"(FileInput.zip contains random experiment's folders)");
 			return;
-		}
-		if (args[0].endsWith(".zip")==false){
+		}*/
+		if (arg.endsWith(".zip")==false){
 			System.out.println("file .zip not provided, the program will terminate.");
 			return;
 		}
 
 		//Scompatta il file di input qualora non sia stato giˆ fatto in precedenza
-		tMerging.unZipIt(args[0]);
+		tMerging.unZipIt(arg);
 
 		//Fa una lista delle cartelle che contengono i file utili per l'algoritmo di merging (activities.xml e guitree.xml)
-		tMerging.setList(tMerging.getFoldersList(args[0].replace(".zip", "")));
+		tMerging.setList(tMerging.getFoldersList(arg.replace(".zip", "")));
 		System.out.println("Trovate "+tMerging.getList().length + " cartelle adatte.");
 
 		//Stampa il nome delle cartelle a cui sarˆ applicato l'algoritmo
