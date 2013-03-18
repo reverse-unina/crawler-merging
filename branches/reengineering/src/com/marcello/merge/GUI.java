@@ -1,39 +1,27 @@
 package com.marcello.merge;
 
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
 import java.util.Observable;
 import java.util.Observer;
 import java.awt.BorderLayout;
-import javax.swing.JSplitPane;
-import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
-import java.awt.Component;
 import javax.swing.border.EmptyBorder;
 
 public class GUI{
 
 	private JFrame frame;
 	private JTextField txtInsertFilesPath;
-	private JLabel state;
 
 	/**
 	 * Launch the application.
@@ -99,11 +87,9 @@ public class GUI{
 		JButton btnStart = new JButton("Start!");
 		panel_1.add(btnStart);
 		btnStart.addMouseListener(new MouseAdapter() {
-			boolean message = false;
 			class obs implements Observer{
 				@Override
 				public void update(Observable o, Object arg) {
-					message = true;
 					JOptionPane.showMessageDialog(null,arg);							
 				}
 			}
@@ -117,16 +103,6 @@ public class GUI{
 					merging.addObserver(new obs());
 					Thread t = new Thread(merging);
 					t.start();
-					state.setText("Executing...");
-					state.setVisible(true);
-					try {
-						Thread.sleep(100); //attenzione ai tempi...c'è race condition.
-						if(!message)
-							t.join();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					state.setText("Done!");
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Select file's path first");
@@ -134,10 +110,6 @@ public class GUI{
 			}
 		});
 		btnStart.setBounds(310, 215, 117, 29);
-
-		state = new JLabel("State");
-		panel_1.add(state);
-		state.setVisible(false);
 
 		JPanel panel_2 = new JPanel();
 		frame.getContentPane().add(panel_2, BorderLayout.SOUTH);
