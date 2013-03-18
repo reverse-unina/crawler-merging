@@ -34,46 +34,7 @@ public class GUI {
 	private JFrame frame;
 	private JTextField txtInsertFilesPath;
 	private JLabel state;
-	private JFrame outputFrame;
-	class Text extends JTextArea{
-
-		JTextArea textArea;
-
-		public Text(){
-			this.textArea = new JTextArea();
-		}
-
-		private void updateTextArea(final String text) {
-			SwingUtilities.invokeLater(new Runnable() {
-				public void run() {
-					textArea.append(text);
-				}
-			});
-		}
-
-		private void redirectSystemStreams() {
-			OutputStream out = new OutputStream() {
-				@Override
-				public void write(int b) throws IOException {
-					updateTextArea(String.valueOf((char) b));
-				}
-
-				@Override
-				public void write(byte[] b, int off, int len) throws IOException {
-					updateTextArea(new String(b, off, len));
-				}
-
-				@Override
-				public void write(byte[] b) throws IOException {
-					write(b, 0, b.length);
-				}
-			};
-
-			System.setOut(new PrintStream(out, true));
-			System.setErr(new PrintStream(out, true));
-		}
-	}
-	private Text text;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -155,6 +116,12 @@ public class GUI {
 					t.start();
 					state.setText("Executing...");
 					state.setVisible(true);
+					try {
+						t.join();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					state.setText("Done!");
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Select file's path first");
@@ -175,20 +142,5 @@ public class GUI {
 		lblDevelopedByMarcello.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
 		lblDevelopedByMarcello.setBounds(284, 256, 160, 16);
 		
-		/*	
-		text = new Text();
-		text.redirectSystemStreams();
-		
-		outputFrame = new JFrame("Output");
-		outputFrame.setBounds(600, 100, 500, 350);
-		outputFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		outputFrame.getContentPane().setLayout(null);
-		
-		JScrollPane scroll = new JScrollPane();
-		scroll.add(text.textArea);
-		scroll.setVisible(true);
-		scroll.setBounds(outputFrame.getBounds());
-		
-		outputFrame.getContentPane().add(scroll);*/
 	}
 }
