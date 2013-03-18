@@ -29,12 +29,12 @@ import javax.swing.JPanel;
 import java.awt.Component;
 import javax.swing.border.EmptyBorder;
 
-public class GUI {
+public class GUI{
 
 	private JFrame frame;
 	private JTextField txtInsertFilesPath;
 	private JLabel state;
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -63,7 +63,7 @@ public class GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
+
 		frame = new JFrame("Crawler Merging");
 		frame.setBounds(100, 100, 500, 170);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,7 +86,8 @@ public class GUI {
 			public void mouseReleased(MouseEvent arg0) {
 				JFileChooser chooser = new JFileChooser();
 				chooser.showOpenDialog(null);
-				txtInsertFilesPath.setText(chooser.getSelectedFile().getAbsolutePath());
+				if(chooser.getSelectedFile()!=null)
+					txtInsertFilesPath.setText(chooser.getSelectedFile().getAbsolutePath());
 			}
 		});
 		btnBrowse.setBounds(327, 71, 117, 29);
@@ -94,20 +95,22 @@ public class GUI {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new EmptyBorder(10, 0, 0, 0));
 		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
-		
+
 		JButton btnStart = new JButton("Start!");
 		panel_1.add(btnStart);
 		btnStart.addMouseListener(new MouseAdapter() {
-
+			boolean message = false;
+			class obs implements Observer{
+				@Override
+				public void update(Observable o, Object arg) {
+					message = true;
+					JOptionPane.showMessageDialog(null,arg);							
+				}
+			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				String arg;
-				class obs implements Observer{
-					@Override
-					public void update(Observable o, Object arg) {
-						JOptionPane.showMessageDialog(null,(String)arg);
-					}					
-				}
+
 				if(!txtInsertFilesPath.getText().equals("Insert file's path here")){
 					arg = txtInsertFilesPath.getText();
 					CrawlerMerging merging = new CrawlerMerging(arg);
@@ -117,7 +120,9 @@ public class GUI {
 					state.setText("Executing...");
 					state.setVisible(true);
 					try {
-						t.join();
+						Thread.sleep(100); //attenzione ai tempi...c'è race condition.
+						if(!message)
+							t.join();
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -129,7 +134,7 @@ public class GUI {
 			}
 		});
 		btnStart.setBounds(310, 215, 117, 29);
-		
+
 		state = new JLabel("State");
 		panel_1.add(state);
 		state.setVisible(false);
@@ -141,6 +146,7 @@ public class GUI {
 		panel_2.add(lblDevelopedByMarcello);
 		lblDevelopedByMarcello.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
 		lblDevelopedByMarcello.setBounds(284, 256, 160, 16);
-		
+
 	}
+
 }

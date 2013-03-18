@@ -6,12 +6,12 @@ import java.util.Observable;
 public class CrawlerMerging extends Observable implements Runnable {
 
 	private String arg;
-	
+
 	public CrawlerMerging(String arg){
 		this.arg = arg;
 	}
-	
-	
+
+
 	public CrawlerMerging(){
 		arg = null;
 	}
@@ -19,14 +19,6 @@ public class CrawlerMerging extends Observable implements Runnable {
 	@Override
 	public void run() {
 
-		TotalMerging tMerging = new TotalMerging();
-
-		tMerging.setXmlFilePath(arg.replace(".zip", File.separator + "guitree.xml" ));
-
-		/*if(arg.length==0||arg[0].equals("-help")){
-			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"(FileInput.zip contains random experiment's folders)");
-			return;
-		}*/
 		if (arg.endsWith(".zip")==false){
 			System.out.println("file .zip not provided, the program will terminate.");
 			if(this.countObservers()!=0){
@@ -35,6 +27,15 @@ public class CrawlerMerging extends Observable implements Runnable {
 			}				
 			return;
 		}
+
+		/*if(arg.length==0||arg[0].equals("-help")){
+			System.out.println("Usage: TotalMerging.jar FileInput.zip" + System.getProperty("line.separator")+"(FileInput.zip contains random experiment's folders)");
+			return;
+		}*/
+
+		TotalMerging tMerging = new TotalMerging();
+
+		tMerging.setXmlFilePath(arg.replace(".zip", File.separator + "guitree.xml" ));
 
 		//Scompatta il file di input qualora non sia stato giˆ fatto in precedenza
 		tMerging.unZipIt(arg);
