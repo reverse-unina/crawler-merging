@@ -26,7 +26,6 @@ import java.awt.BorderLayout;
 import javax.swing.JSplitPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import javax.swing.border.EmptyBorder;
 
@@ -176,7 +175,6 @@ public class GUI {
 		lblDevelopedByMarcello.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
 		lblDevelopedByMarcello.setBounds(284, 256, 160, 16);
 		
-		frame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{txtInsertFilesPath, btnBrowse, btnStart, lblDevelopedByMarcello}));
 		/*	
 		text = new Text();
 		text.redirectSystemStreams();

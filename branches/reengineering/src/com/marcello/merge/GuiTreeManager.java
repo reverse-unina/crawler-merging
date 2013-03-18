@@ -105,7 +105,7 @@ public class GuiTreeManager extends Observable implements Runnable{
 			DocumentBuilder builder = null;
 			try
 			{
-				factory.setValidating(true);
+				factory.setValidating(Settings.validation);
 				factory.setIgnoringElementContentWhitespace(true);
 				builder = factory.newDocumentBuilder();			
 			}
