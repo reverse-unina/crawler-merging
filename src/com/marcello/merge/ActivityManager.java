@@ -93,7 +93,7 @@ public class ActivityManager extends Thread{
 		DocumentBuilder builder = null;
 		try
 		{
-			factory.setValidating(false);
+			factory.setValidating(Settings.validation);
 			factory.setIgnoringElementContentWhitespace(true);
 			builder = factory.newDocumentBuilder();			
 		}
@@ -315,7 +315,7 @@ public class ActivityManager extends Thread{
 			DocumentBuilder builder = null;
 			try
 			{
-				factory.setValidating(true);
+				factory.setValidating(Settings.validation);
 				factory.setIgnoringElementContentWhitespace(true);
 				builder = factory.newDocumentBuilder();			
 			}
