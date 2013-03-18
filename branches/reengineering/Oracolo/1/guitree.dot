@@ -1,0 +1,22 @@
+digraph finite_state_machine {
+rankdir=LR;
+node [shape = circle];
+a1->a1[label="e2"];
+a1->a1[label="e7"];
+a1->a4[label="e35"];
+a4->a4[label="e46"];
+a4->a4[label="e51"];
+a4->a1[label="e52"];
+a1->a4[label="e69"];
+a4->a4[label="e88"];
+a4->a1[label="e92"];
+a4->exit[label="e181"];
+a4->a4[label="e279"];
+a4->a4[label="e290"];
+a1->a1[label="e378"];
+a1->crash[label="e392"];
+a1->a1[label="e618"];
+a1->a1[label="e816"];
+a1->exit[label="e852"];
+a1->a1[label="e848"];
+}
