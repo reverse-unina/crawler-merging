@@ -189,7 +189,7 @@ public class TotalMerging implements Observer{
 		return tempList;
 	}
 
-	public List<ActivityState> compareActivities(List<ActivityState> temp, List<ActivityState> current){
+	public synchronized List<ActivityState> compareActivities(List<ActivityState> temp, List<ActivityState> current){
 
 		ListIterator<ActivityState> iteratorTemp = temp.listIterator();
 		ListIterator<ActivityState> iteratorCurrent = current.listIterator();
@@ -220,7 +220,8 @@ public class TotalMerging implements Observer{
 				//(diventa "_id")
 				else{
 					if(b.getId().equals(a.getId())){
-						b.setId("_"+b.getId());}
+						b.setId("_"+b.getId());
+					}
 				}
 			}
 		}
