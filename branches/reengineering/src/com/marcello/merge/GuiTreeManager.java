@@ -198,11 +198,11 @@ public class GuiTreeManager extends Observable implements Runnable{
 
 			Element transition = (Element)nodeList.item(i);	//Per ogni nodo TRANSITION
 
-			Element start_activity = (Element)transition.getElementsByTagName("START_ACTIVITY").item(0);	//Estrae il nodo start
-			Element final_activity = (Element)transition.getElementsByTagName("FINAL_ACTIVITY").item(0);	//Estrae il nodo final
+//			Element start_activity = (Element)transition.getElementsByTagName("START_ACTIVITY").item(0);	//Estrae il nodo start (spreco risorse)
+//			Element final_activity = (Element)transition.getElementsByTagName("FINAL_ACTIVITY").item(0);	//Estrae il nodo final (spreco risorse)
 			Element event = (Element)transition.getElementsByTagName("EVENT").item(0);	//Estrae il nodo event
 
-			String key = start_activity.getAttribute("id")+final_activity.getAttribute("id");	//crea la chiave composta dagli 'id' di start e final
+			String key = ((Element) transition.getElementsByTagName("START_ACTIVITY").item(0)).getAttribute("id")+((Element) transition.getElementsByTagName("FINAL_ACTIVITY").item(0)).getAttribute("id");	//crea la chiave composta dagli 'id' di start e final
 
 			//System.out.println("key: "+key);
 
@@ -210,22 +210,22 @@ public class GuiTreeManager extends Observable implements Runnable{
 				Iterator<Element> iterator = table.get(key).iterator();	//ricava un iteratore sulle transition relative alla chiave
 				boolean find = false;
 				while(iterator.hasNext()&&find==false){	//scorre le transition relative alla chiave
-					Element event_table = (Element)iterator.next().getElementsByTagName("EVENT").item(0);	//per ogni transition relativa alla chiave 
-					if (event_table.getAttribute("type").equals(event.getAttribute("type"))){	//se il tipo di evento della transition nella tabella coincide con quello della transition in esame
-						event.setAttribute("id", event_table.getAttribute("id"));	//modifica il campo id della transition in esame con quello della transition in tabella
+					Element event_table = (Element)iterator.next();	//per ogni evento relativa alla chiave 
+					if (event_table.getAttribute("type").equals(event.getAttribute("type"))){	//se il tipo di evento nella tabella coincide con quello in esame
+						event.setAttribute("id", event_table.getAttribute("id"));	//modifica il campo id dell'evento in esame con quello dell'evento in tabella
 						find=true;
 					}
 				}
 				if(find==false)	//se nella tabella non è presente un evento con lo stesso tipo di quello in esame
-					table.get(key).add(transition);	//inserisci la transition in tabella 
+					table.get(key).add(event);	//inserisci l'evento in tabella 
 			}
 			else{	//se la tabella non contiene l'id ricavato
 				List<Element> list = new Vector<Element>();	//crea un vettore di Elementi
-				list.add(transition);	//aggiungi al vettore la transition in esame
+				list.add(event);	//aggiungi al vettore la transition in esame
 				table.put(key, list);	//associa il vettore alla tabella
 			}
 		}
-		System.out.println("Done");
+		System.out.println("Transitions merged");
 	}
 
 	public void GetDotFile(String path){
