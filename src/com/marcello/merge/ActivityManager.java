@@ -27,6 +27,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -83,7 +84,7 @@ public class ActivityManager extends Thread{
 		this.activities = this.ActivityExtractor(activitiesFilePath);
 		this.xmlFilePath = activitiesFilePath;
 		setDocByXml();
-		}
+	}
 
 	/***UTILITY FUNCTIONS***/
 
@@ -230,22 +231,28 @@ public class ActivityManager extends Thread{
 
 	public Comparator selectComparator(){
 
+		Object[] comparatorParamenters = getComparatorType(System.getProperty("user.dir") + File.separator +"files"+ File.separator +"merging_prefs.xml");
 		int type = 0;
 
 		try{
-			type = getComparatorType(System.getProperty("user.dir") + File.separator +"files"+ File.separator +"merging_prefs.xml");
+			type = (Integer)comparatorParamenters[0];
 		}catch(NullPointerException e){
 			System.out.println(e);
 		}
 
 		Comparator comparator = null;
-
+		String[] parameters = new String[comparatorParamenters.length-1];
+		
 		switch(type){
 		case 1:
-			comparator = new CustomWidgetsDeepComparator();
+			for(int i=1; i<comparatorParamenters.length;i++)
+				parameters[i-1] = (String)comparatorParamenters[i];
+			comparator = new CustomWidgetsDeepComparator(parameters);
 			break;
 		case 2:
-			comparator = new CustomWidgetsComparator();
+			for(int i=1; i<comparatorParamenters.length;i++)
+				parameters[i-1] = (String)comparatorParamenters[i];
+			comparator = new CustomWidgetsComparator(parameters);
 			break;
 		case 3:
 			comparator = new NameComparator();
@@ -263,7 +270,7 @@ public class ActivityManager extends Thread{
 		return comparator;
 	}
 
-	private int getComparatorType(String file) throws NullPointerException
+	private Object[] getComparatorType(String file) throws NullPointerException
 	{
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
@@ -291,22 +298,64 @@ public class ActivityManager extends Thread{
 
 		Element first = doc.getDocumentElement();
 
-		Element entry = (Element)first.getElementsByTagName("entry").item(0);
+		NodeList entries = first.getElementsByTagName("entry");
 
-		String value = (entry.getAttribute("value"));
+		String comparatorType = "Null";
+		List<String> widgets = new Vector<String>();
+		
+		for(int i=0; i<entries.getLength();i++){
+			
+			NamedNodeMap attributes = entries.item(i).getAttributes();
+			
+			//memorizza il tipo di comparatore scelto
+			if(attributes.getNamedItem("key").getNodeValue().equals("TYPE"))
+				comparatorType = (String)attributes.getNamedItem("value").getNodeValue();
+			//memorizza (se ce ne sono) i widget su cui fare il confronto
+			else if(!attributes.getNamedItem("value").getNodeValue().equals(""))
+				widgets.add((String)attributes.getNamedItem("value").getNodeValue());
 
-		if (value.equals("CustomWidgetsDeepComparator"))
-			return 1;
-		if (value.equals("CustomWidgetsComparator"))
-			return 2;
-		if (value.equals("NameComparator"))
-			return 3;
-		if (value.equals("ButtonComparator"))
-			return 4;
-		if (value.equals("EditTextComparator"))
-			return 5;
+		}
 
-		return 0;
+		Object[] toReturn;
+
+		if (comparatorType.equals("CustomWidgetsDeepComparator"))
+		{
+			toReturn = new Object[widgets.size()+1];
+			toReturn[0]=1;
+			for(int i=1; i<=widgets.size();i++)
+				toReturn[i] = widgets.get(i-1);
+			return toReturn;
+		}
+		if (comparatorType.equals("CustomWidgetsComparator"))
+		{
+			toReturn = new Object[widgets.size()+1];
+			toReturn[0]=2;
+			for(int i=1; i<=widgets.size();i++)
+				toReturn[i] = widgets.get(i-1);
+			return toReturn;
+		}
+		if (comparatorType.equals("NameComparator"))
+		{
+			toReturn = new Object[1];
+			toReturn[0]=3;
+			return toReturn;
+		}
+		if (comparatorType.equals("ButtonComparator"))
+		{
+			toReturn = new Object[1];
+			toReturn[0]=4;
+			return toReturn;
+		}
+		if (comparatorType.equals("EditTextComparator"))
+		{
+			toReturn = new Object[1];
+			toReturn[0]=5;
+			return toReturn;
+		}
+
+		toReturn = new Object[1];
+		toReturn[0]=0;
+		return toReturn;
 	}
 
 	public boolean setDocByXml(){
@@ -337,7 +386,7 @@ public class ActivityManager extends Thread{
 		}
 		return false;
 	}
-	
+
 	public void updateDocument(Document _doc, List<ActivityState> _activities)
 	{
 		Element root = _doc.getDocumentElement();
@@ -378,7 +427,7 @@ public class ActivityManager extends Thread{
 
 		xmlFilePath = filename;
 	}
-	
+
 	//UNUSED
 	public void printActivities(List<ActivityState> list)
 	{
