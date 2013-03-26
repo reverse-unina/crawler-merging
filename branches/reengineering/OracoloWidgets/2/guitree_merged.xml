@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE SESSION PUBLIC "SESSION" "/Volumes/Magazzino/File Personali/Laboratorio Uni/CrawlerMerging/guitree.dtd">
+<SESSION app="ApplicationInfo{40513928 aarddict.android}" class_name="aarddict.android.LookupActivity" comparation_widgets="null" date_time="Wed Jul 18 23:28:10 GMT+00:00 2012" end_task_sleep="0" event_sleep="6000" in_and_out_focus="true" max_depth="0" package_name="aarddict.android" random_seed="6918722718895481553" restart_sleep="6000" state_file="activities.xml" throbber_sleep="30000">
+<TRACE date_time="Wed Jul 18 23:28:22 GMT+00:00 2012" fail="false" id="5">
+<TRANSITION>
+<START_ACTIVITY id="a1" name="LookupActivity" screenshot="a1.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a1">
+<DESCRIPTION id="a1"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="" id="e1" type="click">
+<WIDGET available="true" clickable="true" id="2131099660" index="12" long_clickable="false" name="" simple_type="button" text_type="0" type="android.widget.Button" unique_id="w9" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+</TRACE>
+<TRACE async="false" date_time="Wed Jul 18 23:28:38 GMT+00:00 2012" fail="false" id="11">
+<TRANSITION>
+<START_ACTIVITY id="a1" name="LookupActivity" screenshot="a1.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a1">
+<DESCRIPTION id="a1"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="" id="e1" type="click">
+<WIDGET available="true" clickable="true" id="2131099660" index="12" long_clickable="false" name="" simple_type="button" text_type="0" type="android.widget.Button" unique_id="w9" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT id="e2" type="writeText" value="1">
+<WIDGET available="true" clickable="true" id="2131099659" index="11" long_clickable="true" name="Start typing" simple_type="editText" text_type="1" type="android.widget.EditText" unique_id="w19" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a3.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a3">
+<DESCRIPTION id="a3"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+</TRACE>
+<TRACE async="false" date_time="Wed Jul 18 23:28:58 GMT+00:00 2012" fail="false" id="41">
+<TRANSITION>
+<START_ACTIVITY id="a1" name="LookupActivity" screenshot="a1.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a1">
+<DESCRIPTION id="a1"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="" id="e1" type="click">
+<WIDGET available="true" clickable="true" id="2131099660" index="12" long_clickable="false" name="" simple_type="button" text_type="0" type="android.widget.Button" unique_id="w9" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT id="e2" type="writeText" value="1">
+<WIDGET available="true" clickable="true" id="2131099659" index="11" long_clickable="true" name="Start typing" simple_type="editText" text_type="1" type="android.widget.EditText" unique_id="w19" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a3.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a3">
+<DESCRIPTION id="a3"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="LookupActivity" screenshot="a3.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a3">
+<DESCRIPTION id="a3"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="1000 dollari sul nero" id="e3" type="longClickListItem" value="8">
+<WIDGET available="true" clickable="true" count="20" id="2131099663" index="14" long_clickable="false" name="" simple_type="listView" text_type="0" type="android.widget.ListView" unique_id="w32" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a1" name="ArticleViewActivity" screenshot="a4.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a4">
+<DESCRIPTION id="a4"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+</TRACE>
+<TRACE async="false" date_time="Wed Jul 18 23:29:11 GMT+00:00 2012" fail="false" id="45">
+<TRANSITION>
+<START_ACTIVITY id="a1" name="LookupActivity" screenshot="a1.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a1">
+<DESCRIPTION id="a1"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="" id="e1" type="click">
+<WIDGET available="true" clickable="true" id="2131099660" index="12" long_clickable="false" name="" simple_type="button" text_type="0" type="android.widget.Button" unique_id="w9" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT id="e2" type="writeText" value="1">
+<WIDGET available="true" clickable="true" id="2131099659" index="11" long_clickable="true" name="Start typing" simple_type="editText" text_type="1" type="android.widget.EditText" unique_id="w19" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a3.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a3">
+<DESCRIPTION id="a3"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="LookupActivity" screenshot="a3.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a3">
+<DESCRIPTION id="a3"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="1000 dollari sul nero" id="e3" type="longClickListItem" value="8">
+<WIDGET available="true" clickable="true" count="20" id="2131099663" index="14" long_clickable="false" name="" simple_type="listView" text_type="0" type="android.widget.ListView" unique_id="w32" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a1" name="ArticleViewActivity" screenshot="a4.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a4">
+<DESCRIPTION id="a4"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a1" name="ArticleViewActivity" screenshot="a4.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a4">
+<DESCRIPTION id="a4"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT id="e4" type="scrollDown">
+<WIDGET id="-1" simple_type="null" type="null" unique_id="w0"/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="ArticleViewActivity" screenshot="a5.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a5">
+<DESCRIPTION id="a5"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+</TRACE>
+<TRACE async="false" date_time="Wed Jul 18 23:29:30 GMT+00:00 2012" fail="false" id="49">
+<TRANSITION>
+<START_ACTIVITY id="a1" name="LookupActivity" screenshot="a1.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a1">
+<DESCRIPTION id="a1"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="" id="e1" type="click">
+<WIDGET available="true" clickable="true" id="2131099660" index="12" long_clickable="false" name="" simple_type="button" text_type="0" type="android.widget.Button" unique_id="w9" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="LookupActivity" screenshot="a2.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a2">
+<DESCRIPTION id="a2"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT id="e2" type="writeText" value="1">
+<WIDGET available="true" clickable="true" id="2131099659" index="11" long_clickable="true" name="Start typing" simple_type="editText" text_type="1" type="android.widget.EditText" unique_id="w19" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="LookupActivity" screenshot="a3.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a3">
+<DESCRIPTION id="a3"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="LookupActivity" screenshot="a3.jpg" title="Aard Dictionary - 2 dictionaries" unique_id="a3">
+<DESCRIPTION id="a3"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT desc="1000 dollari sul nero" id="e3" type="longClickListItem" value="8">
+<WIDGET available="true" clickable="true" count="20" id="2131099663" index="14" long_clickable="false" name="" simple_type="listView" text_type="0" type="android.widget.ListView" unique_id="w32" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a1" name="ArticleViewActivity" screenshot="a4.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a4">
+<DESCRIPTION id="a4"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a1" name="ArticleViewActivity" screenshot="a4.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a4">
+<DESCRIPTION id="a4"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT id="e4" type="scrollDown">
+<WIDGET available="" clickable="" id="-1" index="0" long_clickable="" name="" simple_type="null" text_type="0" type="null" unique_id="w0" value=""/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="ArticleViewActivity" screenshot="a5.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a5">
+<DESCRIPTION id="a5"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+<TRANSITION>
+<START_ACTIVITY id="a2" name="ArticleViewActivity" screenshot="a5.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a5">
+<DESCRIPTION id="a5"/>
+</START_ACTIVITY>
+<INPUTS/>
+<EVENT id="e5" type="changeOrientation">
+<WIDGET id="-1" simple_type="null" type="null" unique_id="w0"/>
+</EVENT>
+<FINAL_ACTIVITY id="a2" name="ArticleViewActivity" screenshot="a6.jpg" title="1000 dollari sul nero - Wikiquote (it)" unique_id="a6">
+<DESCRIPTION id="a6"/>
+</FINAL_ACTIVITY>
+</TRANSITION>
+</TRACE>
+</SESSION>
