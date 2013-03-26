@@ -104,7 +104,6 @@ public class TotalMerging implements Observer{
 
 	}
 
-
 	public TotalMerging() {
 		super();
 		this.guitree_temp = null;
@@ -220,7 +219,7 @@ public class TotalMerging implements Observer{
 				//(diventa "_id")
 				else{
 					if(b.getId().equals(a.getId())){
-						b.setId("_"+b.getId());
+						b.setId(b.getId()+"+");
 					}
 				}
 			}

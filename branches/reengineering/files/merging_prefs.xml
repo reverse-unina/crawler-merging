@@ -5,7 +5,13 @@
     <map/>
     <node name="comparator">
       <map>
-        <entry key="TYPE" value="CustomWidgetsDeepComparator"/>
+        <entry key="TYPE" value="CustomWidgetsComparator"/>
+        <entry key="WIDGET0" value="RelativeLayout"/>
+        <entry key="WIDGET1" value="LinearLayout"/>
+        <entry key="WIDGET2" value=""/>
+        <entry key="WIDGET3" value=""/>
+        <entry key="WIDGET4" value=""/>
+        <entry key="WIDGET5" value=""/>
       </map>
     </node>
   </root>
