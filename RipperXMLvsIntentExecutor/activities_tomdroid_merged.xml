@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RADICE>
+<START_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a1">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w0"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w2"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w3"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w4"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Warning" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w5" value="Warning"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w6"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w7"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w8"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Welcome to Tomdroid.&#10;&#10;Please note that this is beta quality software and that it contains known problems.&#10;&#10;We are well aware of these issues and intend to work on them quickly but I also wanted to get something out and tested as quickly as possible.&#10;&#10;If you would like to contribute, help at all levels would be appreciated. Hop on board on launchpad.net/tomdroid and contact us!&#10;" simple_type="text" type="android.widget.TextView" unique_id="w9" value="Welcome to Tomdroid.&#10;&#10;Please note that this is beta quality software and that it contains known problems.&#10;&#10;We are well aware of these issues and intend to work on them quickly but I also wanted to get something out and tested as quickly as possible.&#10;&#10;If you would like to contribute, help at all levels would be appreciated. Hop on board on launchpad.net/tomdroid and contact us!&#10;"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w10"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w11"/>
+<WIDGET available="true" clickable="false" count="0" id="16908675" index="14" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w12"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908315" index="16" long_clickable="false" name="OK" simple_type="button" type="android.widget.Button" unique_id="w13" value="OK"/>
+<WIDGET available="true" clickable="false" count="0" id="16908676" index="18" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w14"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w15"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</START_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a2">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w16"/>
+<WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w17"/>
+<WIDGET available="true" clickable="false" count="5" id="2131099648" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w18"/>
+<WIDGET available="true" clickable="true" id="-1" index="3" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w19"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099649" index="4" long_clickable="false" name="Tomdroid" simple_type="text" type="android.widget.TextView" unique_id="w20" value="Tomdroid"/>
+<WIDGET available="true" clickable="true" id="-1" index="5" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w21"/>
+<WIDGET available="true" clickable="true" id="2131099651" index="6" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w22"/>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="8" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w23"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="9" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w24"/>
+<WIDGET available="true" clickable="true" count="1" id="16908298" index="10" long_clickable="true" name="" simple_type="listView" type="android.widget.ListView" unique_id="w25"/>
+<WIDGET available="true" clickable="false" count="3" id="-1" index="11" long_clickable="false" name="" simple_type="listItem" type="android.widget.TwoLineListItem" unique_id="w26"/>
+<WIDGET available="true" clickable="false" id="2131099655" index="12" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w27"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099656" index="13" long_clickable="false" name="Tomdroid's First Note" simple_type="text" type="android.widget.TextView" unique_id="w28" value="Tomdroid's First Note"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099657" index="14" long_clickable="false" name="Modified: 10/9/2010, 8:50 PM" simple_type="text" type="android.widget.TextView" unique_id="w29" value="Modified: 10/9/2010, 8:50 PM"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="15" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w30"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a5">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w63"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w64"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w65"/>
+<WIDGET available="true" clickable="false" count="1" id="16908673" index="9" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w66"/>
+<WIDGET available="true" clickable="false" count="1" id="16908331" index="10" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w67"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="11" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w68"/>
+<WIDGET available="true" clickable="false" count="2" id="16908804" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w69"/>
+<WIDGET available="true" clickable="false" count="10000" id="16908301" index="13" long_clickable="false" name="" simple_type="" type="android.widget.ProgressBar" unique_id="w70" value="0"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="14" long_clickable="false" name="Completing authentication. Please wait…" simple_type="text" type="android.widget.TextView" unique_id="w71" value="Completing authentication. Please wait…"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="22" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w72"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a6" name="ViewNote" title="Tomdroid - View Note" unique_id="a6">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w73"/>
+<WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w74"/>
+<WIDGET available="true" clickable="false" count="3" id="2131099648" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w75"/>
+<WIDGET available="true" clickable="true" id="-1" index="3" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w76"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099649" index="4" long_clickable="false" name="Tomdroid - View Note" simple_type="text" type="android.widget.TextView" unique_id="w77" value="Tomdroid - View Note"/>
+<WIDGET available="true" clickable="true" id="-1" index="5" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w78"/>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="6" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w79"/>
+<WIDGET available="true" clickable="false" count="1" id="2131099659" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w80"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w81"/>
+<WIDGET available="true" clickable="false" count="2" id="2131099661" index="9" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w82"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099658" index="10" long_clickable="false" name="Tomdroid's First Note" simple_type="text" type="android.widget.TextView" unique_id="w83" value="Tomdroid's First Note"/>
+<WIDGET available="true" clickable="true" content_type="default" id="2131099676" index="11" long_clickable="true" name="Welcome to Tomdroid!&#10;&#10;You have no notes here yet. To get started, set your Synchronization preferences under Settings. There are two synchronization options described below.&#10;&#10;Tomboy Web&#10;Tomboy Web is what you are looking for if you want to sync to Tomboy-Online, Ubuntu One, your own Snowy server or any server supporting the Tomboy Web REST API.&#10;&#10;To use it, set Sync Service to Tomboy Web in preferences then  provide a Server URL. Here are some of the public ones:&#10;Tomboy Online - https://edge.tomboy-online.org/&#10;Ubuntu One - https://one.ubuntu.com/notes&#10;&#10;Once set, hit the Sync logo on Tomdroid's top bar to synchronize your notes.&#10;&#10;Note: you might want to back up your Tomboy notes before syncing, since this app is still under development and may corrupt your Tomboy notes.  The notes can be found in ~/.local/share/tomboy/ on Linux.&#10;&#10;SD Card&#10;Put your Tomboy notes (*.note) on your SD Card under tomdroid/. The notes can be found in ~/.local/share/tomboy/ on Linux. Once the notes are copied, set Sync Service to SD Card in preferences then hit the Sync logo on Tomdroid's top bar.&#10;&#10;See http://live.gnome.org/Tomboy/Directories for the notes' location on other platforms.&#10;&#10;Also, Tomdroid is always looking for new contributors. If you are interested join the tomdroid-dev team on launchpad: http://launchpad.net/~tomdroid-dev.&#10;&#10;Lastly, if you encounter any issue, please report it at: https://bugs.launchpad.net/tomdroid" simple_type="text" type="android.widget.TextView" unique_id="w84" value="Welcome to Tomdroid!&#10;&#10;You have no notes here yet. To get started, set your Synchronization preferences under Settings. There are two synchronization options described below.&#10;&#10;Tomboy Web&#10;Tomboy Web is what you are looking for if you want to sync to Tomboy-Online, Ubuntu One, your own Snowy server or any server supporting the Tomboy Web REST API.&#10;&#10;To use it, set Sync Service to Tomboy Web in preferences then  provide a Server URL. Here are some of the public ones:&#10;Tomboy Online - https://edge.tomboy-online.org/&#10;Ubuntu One - https://one.ubuntu.com/notes&#10;&#10;Once set, hit the Sync logo on Tomdroid's top bar to synchronize your notes.&#10;&#10;Note: you might want to back up your Tomboy notes before syncing, since this app is still under development and may corrupt your Tomboy notes.  The notes can be found in ~/.local/share/tomboy/ on Linux.&#10;&#10;SD Card&#10;Put your Tomboy notes (*.note) on your SD Card under tomdroid/. The notes can be found in ~/.local/share/tomboy/ on Linux. Once the notes are copied, set Sync Service to SD Card in preferences then hit the Sync logo on Tomdroid's top bar.&#10;&#10;See http://live.gnome.org/Tomboy/Directories for the notes' location on other platforms.&#10;&#10;Also, Tomdroid is always looking for new contributors. If you are interested join the tomdroid-dev team on launchpad: http://launchpad.net/~tomdroid-dev.&#10;&#10;Lastly, if you encounter any issue, please report it at: https://bugs.launchpad.net/tomdroid"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="12" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w85"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a7">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w86"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w87"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w88"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w89"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Note Options" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w90" value="Note Options"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w91"/>
+<WIDGET available="true" clickable="true" count="6" id="16908823" index="8" long_clickable="false" name="" simple_type="listView" type="com.android.internal.app.AlertController$RecycleListView" unique_id="w92"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="9" long_clickable="false" name="" simple_type="" type="com.android.internal.view.menu.ListMenuItemView" unique_id="w93"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="10" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w94"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="11" long_clickable="false" name="View" simple_type="text" type="android.widget.TextView" unique_id="w95" value="View"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="13" long_clickable="false" name="" simple_type="" type="com.android.internal.view.menu.ListMenuItemView" unique_id="w96"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="14" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w97"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="15" long_clickable="false" name="Edit" simple_type="text" type="android.widget.TextView" unique_id="w98" value="Edit"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="17" long_clickable="false" name="" simple_type="" type="com.android.internal.view.menu.ListMenuItemView" unique_id="w99"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="18" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w100"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="19" long_clickable="false" name="Delete" simple_type="text" type="android.widget.TextView" unique_id="w101" value="Delete"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="21" long_clickable="false" name="" simple_type="" type="com.android.internal.view.menu.ListMenuItemView" unique_id="w102"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="22" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w103"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="23" long_clickable="false" name="Revert" simple_type="text" type="android.widget.TextView" unique_id="w104" value="Revert"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="25" long_clickable="false" name="" simple_type="" type="com.android.internal.view.menu.ListMenuItemView" unique_id="w105"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="26" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w106"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="27" long_clickable="false" name="Send" simple_type="text" type="android.widget.TextView" unique_id="w107" value="Send"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="29" long_clickable="false" name="" simple_type="" type="com.android.internal.view.menu.ListMenuItemView" unique_id="w108"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="30" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w109"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="31" long_clickable="false" name="Create shortcut" simple_type="text" type="android.widget.TextView" unique_id="w110" value="Create shortcut"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="42" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w111"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a9">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="4" id="16908726" index="0" long_clickable="false" name="" simple_type="menu" type="com.android.internal.view.menu.IconMenuView" unique_id="w112"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="1" long_clickable="false" name="Revert All" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w113" value="Revert All"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="2" long_clickable="false" name="Search" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w114" value="Search"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="3" long_clickable="false" name="About" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w115" value="About"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="4" long_clickable="false" name="Settings" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w116" value="Settings"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="5" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w117"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a11">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w133"/>
+<WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w134"/>
+<WIDGET available="true" clickable="false" count="5" id="2131099648" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w135"/>
+<WIDGET available="true" clickable="true" id="-1" index="3" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w136"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099649" index="4" long_clickable="false" name="Tomdroid" simple_type="text" type="android.widget.TextView" unique_id="w137" value="Tomdroid"/>
+<WIDGET available="true" clickable="true" id="-1" index="5" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w138"/>
+<WIDGET available="true" clickable="true" id="2131099651" index="6" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w139"/>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="8" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w140"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="9" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w141"/>
+<WIDGET available="true" clickable="true" count="0" id="16908298" index="10" long_clickable="true" name="" simple_type="emptyList" type="android.widget.ListView" unique_id="w142"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="11" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w143"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a6" name="ViewNote" title="Tomdroid - View Note" unique_id="a15">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="3" id="16908726" index="0" long_clickable="false" name="" simple_type="menu" type="com.android.internal.view.menu.IconMenuView" unique_id="w183"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="1" long_clickable="false" name="Send" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w184" value="Send"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="2" long_clickable="false" name="Delete" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w185" value="Delete"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="3" long_clickable="false" name="Settings" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w186" value="Settings"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="4" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w187"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a18" name="EditNote" title="Tomdroid - Edit Note" unique_id="a18">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w214"/>
+<WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w215"/>
+<WIDGET available="true" clickable="false" count="2" id="2131099648" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w216"/>
+<WIDGET available="true" clickable="true" id="-1" index="3" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w217"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099649" index="4" long_clickable="false" name="Tomdroid - Edit Note" simple_type="text" type="android.widget.TextView" unique_id="w218" value="Tomdroid - Edit Note"/>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="5" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w219"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="6" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w220"/>
+<WIDGET available="true" clickable="false" count="1" id="2131099674" index="7" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w221"/>
+<WIDGET available="true" clickable="false" count="2" id="2131099675" index="8" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w222"/>
+<WIDGET available="true" clickable="true" content_type="default" id="2131099658" index="9" long_clickable="true" name="Enter title here" simple_type="editText" text_type="8193" type="android.widget.EditText" unique_id="w223" value="Tomdroid's First Note"/>
+<WIDGET available="true" clickable="true" content_type="url" id="2131099676" index="10" long_clickable="true" name="Enter note here" simple_type="focusableEditText" text_type="147457" type="android.widget.EditText" unique_id="w224" value="Welcome to Tomdroid!&#10;&#10;You have no notes here yet. To get started, set your Synchronization preferences under Settings. There are two synchronization options described below.&#10;&#10;Tomboy Web&#10;Tomboy Web is what you are looking for if you want to sync to Tomboy-Online, Ubuntu One, your own Snowy server or any server supporting the Tomboy Web REST API.&#10;&#10;To use it, set Sync Service to Tomboy Web in preferences then  provide a Server URL. Here are some of the public ones:&#10;Tomboy Online - https://edge.tomboy-online.org/&#10;Ubuntu One - https://one.ubuntu.com/notes&#10;&#10;Once set, hit the Sync logo on Tomdroid's top bar to synchronize your notes.&#10;&#10;Note: you might want to back up your Tomboy notes before syncing, since this app is still under development and may corrupt your Tomboy notes.  The notes can be found in ~/.local/share/tomboy/ on Linux.&#10;&#10;SD Card&#10;Put your Tomboy notes (*.note) on your SD Card under tomdroid/. The notes can be found in ~/.local/share/tomboy/ on Linux. Once the notes are copied, set Sync Service to SD Card in preferences then hit the Sync logo on Tomdroid's top bar.&#10;&#10;See http://live.gnome.org/Tomboy/Directories for the notes' location on other platforms.&#10;&#10;Also, Tomdroid is always looking for new contributors. If you are interested join the tomdroid-dev team on launchpad: http://launchpad.net/~tomdroid-dev.&#10;&#10;Lastly, if you encounter any issue, please report it at: https://bugs.launchpad.net/tomdroid"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="20" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w225"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a19">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w226"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w227"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w228"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w229"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w230"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Delete Note" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w231" value="Delete Note"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w232"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w233"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w234"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Are you sure you want to delete this note?" simple_type="text" type="android.widget.TextView" unique_id="w235" value="Are you sure you want to delete this note?"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w236"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w237"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w238" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w239" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w240"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a20">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w241"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w242"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w243"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w244"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w245"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Revert Note" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w246" value="Revert Note"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w247"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w248"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w249"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="This will revert a local note to whatever version exist on the remote service. Are you sure you want to do this?" simple_type="text" type="android.widget.TextView" unique_id="w250" value="This will revert a local note to whatever version exist on the remote service. Are you sure you want to do this?"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w251"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w252"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w253" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w254" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w255"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a32">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w401"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w402"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w403"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w404"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w405"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Revert Notes" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w406" value="Revert Notes"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w407"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w408"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w409"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="This will revert your local notes to whatever versions exist on the remote service. Are you sure you want to do this?" simple_type="text" type="android.widget.TextView" unique_id="w410" value="This will revert your local notes to whatever versions exist on the remote service. Are you sure you want to do this?"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w411"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w412"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w413" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w414" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w415"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a33">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w416"/>
+<WIDGET available="true" clickable="false" count="1" id="16908814" index="1" long_clickable="false" name="" simple_type="" type="android.app.SearchDialog$SearchBar" unique_id="w417"/>
+<WIDGET available="true" clickable="false" count="2" id="16908815" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w418"/>
+<WIDGET available="true" clickable="false" count="4" id="16908817" index="4" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w419"/>
+<WIDGET available="true" clickable="false" id="16908818" index="5" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w420"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908819" index="6" long_clickable="true" name="Search Notes" simple_type="searchBar" text_type="65537" type="android.app.SearchDialog$SearchAutoComplete" unique_id="w421" value=""/>
+<WIDGET available="false" clickable="true" content_type="default" id="16908820" index="7" long_clickable="false" name="" simple_type="button" type="android.widget.Button" unique_id="w422" value=""/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="9" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w423"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a34">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w424"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w425"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w426"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w427"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w428"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="About Tomdroid" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w429" value="About Tomdroid"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w430"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w431"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w432"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Tomboy compatible wikiwiki note-taking application that can take notes.&#10;&#10;Author: Olivier Bilodeau&#10;Version: 0.7.1&#10;Licensed under the GPLv3" simple_type="text" type="android.widget.TextView" unique_id="w433" value="Tomboy compatible wikiwiki note-taking application that can take notes.&#10;&#10;Author: Olivier Bilodeau&#10;Version: 0.7.1&#10;Licensed under the GPLv3"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w434"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w435"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="OK" simple_type="button" type="android.widget.Button" unique_id="w436" value="OK"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="Project page" simple_type="button" type="android.widget.Button" unique_id="w437" value="Project page"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w438"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a35">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w439"/>
+<WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w440"/>
+<WIDGET available="true" clickable="false" count="2" id="2131099648" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w441"/>
+<WIDGET available="true" clickable="true" id="-1" index="3" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w442"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099649" index="4" long_clickable="false" name="Tomdroid - Settings" simple_type="text" type="android.widget.TextView" unique_id="w443" value="Tomdroid - Settings"/>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="5" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w444"/>
+<WIDGET available="true" clickable="true" count="13" id="16908298" index="6" long_clickable="false" name="" simple_type="preferenceList" type="android.widget.ListView" unique_id="w445"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="7" long_clickable="false" name="Display Preferences" simple_type="text" type="android.widget.TextView" unique_id="w446" value="Display Preferences"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="8" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w447"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="9" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w448"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="10" long_clickable="false" name="Base Font Size" simple_type="text" type="android.widget.TextView" unique_id="w449" value="Base Font Size"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908304" index="11" long_clickable="false" name="18" simple_type="text" type="android.widget.TextView" unique_id="w450" value="18"/>
+<WIDGET available="true" clickable="false" count="1" id="16908312" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w451"/>
+<WIDGET available="true" clickable="false" id="-1" index="13" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w452"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="14" long_clickable="false" name="Synchronization" simple_type="text" type="android.widget.TextView" unique_id="w453" value="Synchronization"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="15" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w454"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="16" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w455"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="17" long_clickable="false" name="Service" simple_type="text" type="android.widget.TextView" unique_id="w456" value="Service"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908304" index="18" long_clickable="false" name="Online Synchronisation" simple_type="text" type="android.widget.TextView" unique_id="w457" value="Online Synchronisation"/>
+<WIDGET available="true" clickable="false" count="1" id="16908312" index="19" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w458"/>
+<WIDGET available="true" clickable="false" id="-1" index="20" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w459"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="21" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w460"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="22" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w461"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="23" long_clickable="false" name="Server" simple_type="text" type="android.widget.TextView" unique_id="w462" value="Server"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908304" index="24" long_clickable="false" name="https://one.ubuntu.com/notes" simple_type="text" type="android.widget.TextView" unique_id="w463" value="https://one.ubuntu.com/notes"/>
+<WIDGET available="true" clickable="false" count="1" id="16908312" index="25" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w464"/>
+<WIDGET available="true" clickable="false" id="-1" index="26" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w465"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="27" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w466"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="28" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w467"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="29" long_clickable="false" name="Location on SD Card" simple_type="text" type="android.widget.TextView" unique_id="w468" value="Location on SD Card"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908304" index="30" long_clickable="false" name="/mnt/sdcard/tomdroid/" simple_type="text" type="android.widget.TextView" unique_id="w469" value="/mnt/sdcard/tomdroid/"/>
+<WIDGET available="true" clickable="false" count="1" id="16908312" index="31" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w470"/>
+<WIDGET available="true" clickable="false" id="-1" index="32" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w471"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="33" long_clickable="false" name="Misc. Options" simple_type="text" type="android.widget.TextView" unique_id="w472" value="Misc. Options"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="34" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w473"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="35" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w474"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="36" long_clickable="false" name="Show Note Templates" simple_type="text" type="android.widget.TextView" unique_id="w475" value="Show Note Templates"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908304" index="37" long_clickable="false" name="If checked, will show note templates in notes list." simple_type="text" type="android.widget.TextView" unique_id="w476" value="If checked, will show note templates in notes list."/>
+<WIDGET available="true" clickable="false" count="1" id="16908312" index="38" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w477"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908289" index="39" long_clickable="false" name="" simple_type="check" type="android.widget.CheckBox" unique_id="w478" value=""/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="40" long_clickable="false" name="Tools" simple_type="text" type="android.widget.TextView" unique_id="w479" value="Tools"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="41" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w480"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="42" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w481"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908310" index="43" long_clickable="false" name="Backup Notes" simple_type="text" type="android.widget.TextView" unique_id="w482" value="Backup Notes"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908304" index="44" long_clickable="false" name="Copy all local notes to SD Card" simple_type="text" type="android.widget.TextView" unique_id="w483" value="Copy all local notes to SD Card"/>
+<WIDGET available="true" clickable="false" count="0" id="16908312" index="45" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w484"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="46" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w485"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a39">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w522"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w523"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w524"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w525"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w526"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="The connection to the server has failed, please check that the address you entered is correct." simple_type="text" type="android.widget.TextView" unique_id="w527" value="The connection to the server has failed, please check that the address you entered is correct."/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w528"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w529"/>
+<WIDGET available="true" clickable="false" count="0" id="16908675" index="14" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w530"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908315" index="16" long_clickable="false" name="OK" simple_type="button" type="android.widget.Button" unique_id="w531" value="OK"/>
+<WIDGET available="true" clickable="false" count="0" id="16908676" index="18" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w532"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w533"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a6" name="ViewNote" title="Tomdroid - View Note" unique_id="a44">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w576"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w577"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w578"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w579"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w580"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Delete Note" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w581" value="Delete Note"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w582"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w583"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w584"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Are you sure you want to delete this note?" simple_type="text" type="android.widget.TextView" unique_id="w585" value="Are you sure you want to delete this note?"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w586"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w587"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w588" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w589" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w590"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a18" name="EditNote" title="Tomdroid - Edit Note" unique_id="a49">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w669"/>
+<WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w670"/>
+<WIDGET available="true" clickable="false" count="2" id="2131099648" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w671"/>
+<WIDGET available="true" clickable="true" id="-1" index="3" long_clickable="false" name="" simple_type="button" type="android.widget.ImageButton" unique_id="w672"/>
+<WIDGET available="true" clickable="false" content_type="default" id="2131099649" index="4" long_clickable="false" name="Tomdroid - Edit Note" simple_type="text" type="android.widget.TextView" unique_id="w673" value="Tomdroid - Edit Note"/>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="5" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w674"/>
+<WIDGET available="true" clickable="false" count="2" id="-1" index="6" long_clickable="false" name="" simple_type="" type="android.widget.RelativeLayout" unique_id="w675"/>
+<WIDGET available="true" clickable="false" count="1" id="2131099674" index="7" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w676"/>
+<WIDGET available="true" clickable="false" count="2" id="2131099675" index="8" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w677"/>
+<WIDGET available="true" clickable="true" content_type="default" id="2131099658" index="9" long_clickable="true" name="Enter title here" simple_type="editText" type="android.widget.EditText" unique_id="w678" value="74"/>
+<WIDGET available="true" clickable="true" content_type="url" id="2131099676" index="10" long_clickable="true" name="Enter note here" simple_type="focusableEditText" text_type="147457" type="android.widget.EditText" unique_id="w679" value="Welcome to Tomdroid!&#10;&#10;You have no notes here yet. To get started, set your Synchronization preferences under Settings. There are two synchronization options described below.&#10;&#10;Tomboy Web&#10;Tomboy Web is what you are looking for if you want to sync to Tomboy-Online, Ubuntu One, your own Snowy server or any server supporting the Tomboy Web REST API.&#10;&#10;To use it, set Sync Service to Tomboy Web in preferences then  provide a Server URL. Here are some of the public ones:&#10;Tomboy Online - https://edge.tomboy-online.org/&#10;Ubuntu One - https://one.ubuntu.com/notes&#10;&#10;Once set, hit the Sync logo on Tomdroid's top bar to synchronize your notes.&#10;&#10;Note: you might want to back up your Tomboy notes before syncing, since this app is still under development and may corrupt your Tomboy notes.  The notes can be found in ~/.local/share/tomboy/ on Linux.&#10;&#10;SD Card&#10;Put your Tomboy notes (*.note) on your SD Card under tomdroid/. The notes can be found in ~/.local/share/tomboy/ on Linux. Once the notes are copied, set Sync Service to SD Card in preferences then hit the Sync logo on Tomdroid's top bar.&#10;&#10;See http://live.gnome.org/Tomboy/Directories for the notes' location on other platforms.&#10;&#10;Also, Tomdroid is always looking for new contributors. If you are interested join the tomdroid-dev team on launchpad: http://launchpad.net/~tomdroid-dev.&#10;&#10;Lastly, if you encounter any issue, please report it at: https://bugs.launchpad.net/tomdroid"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="20" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w680"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a18" name="EditNote" title="Tomdroid - Edit Note" unique_id="a51">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="4" id="16908726" index="0" long_clickable="false" name="" simple_type="menu" type="com.android.internal.view.menu.IconMenuView" unique_id="w696"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="1" long_clickable="false" name="Save" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w697" value="Save"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="2" long_clickable="false" name="Discard" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w698" value="Discard"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="3" long_clickable="false" name="Send" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w699" value="Send"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908310" index="4" long_clickable="false" name="Settings" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w700" value="Settings"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="5" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w701"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a76">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1043"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1044"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1045"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1046"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Base Font Size" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1047" value="Base Font Size"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1048"/>
+<WIDGET available="true" clickable="false" count="1" id="16908673" index="9" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1049"/>
+<WIDGET available="true" clickable="false" count="1" id="16908331" index="10" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1050"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="11" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w1051"/>
+<WIDGET available="true" clickable="false" count="2" id="16908803" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1052"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908291" index="14" long_clickable="true" name="" simple_type="editText" text_type="1" type="android.widget.EditText" unique_id="w1053" value="18"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="15" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1054"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="16" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1055"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="18" long_clickable="false" name="OK" simple_type="button" type="android.widget.Button" unique_id="w1056" value="OK"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="20" long_clickable="false" name="Cancel" simple_type="button" type="android.widget.Button" unique_id="w1057" value="Cancel"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="22" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1058"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a78">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1075"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1076"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1077"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1078"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Choose the sync service to use" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1079" value="Choose the sync service to use"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1080"/>
+<WIDGET available="true" clickable="true" count="2" id="16908823" index="8" long_clickable="false" name="" simple_type="singleChoiceList" type="com.android.internal.app.AlertController$RecycleListView" unique_id="w1081"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908308" index="9" long_clickable="false" name="Online Synchronisation" simple_type="check" type="android.widget.CheckedTextView" unique_id="w1082" value="Online Synchronisation"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908308" index="10" long_clickable="false" name="SD Card" simple_type="check" type="android.widget.CheckedTextView" unique_id="w1083" value="SD Card"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1084"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="14" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1085"/>
+<WIDGET available="true" clickable="false" count="0" id="16908675" index="15" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1086"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="18" long_clickable="false" name="Cancel" simple_type="button" type="android.widget.Button" unique_id="w1087" value="Cancel"/>
+<WIDGET available="true" clickable="false" count="0" id="16908676" index="19" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1088"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="20" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1089"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a80">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1105"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1106"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1107"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1108"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Server" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1109" value="Server"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1110"/>
+<WIDGET available="true" clickable="false" count="1" id="16908673" index="9" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1111"/>
+<WIDGET available="true" clickable="false" count="1" id="16908331" index="10" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1112"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="11" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w1113"/>
+<WIDGET available="true" clickable="false" count="2" id="16908803" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1114"/>
+<WIDGET available="true" clickable="true" content_type="url" id="16908291" index="14" long_clickable="true" name="" simple_type="editText" text_type="1" type="android.widget.EditText" unique_id="w1115" value="https://one.ubuntu.com/notes"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="15" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1116"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="16" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1117"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="18" long_clickable="false" name="OK" simple_type="button" type="android.widget.Button" unique_id="w1118" value="OK"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="20" long_clickable="false" name="Cancel" simple_type="button" type="android.widget.Button" unique_id="w1119" value="Cancel"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="22" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1120"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a81">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1121"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1122"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1123"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1124"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Location on SD Card" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1125" value="Location on SD Card"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1126"/>
+<WIDGET available="true" clickable="false" count="1" id="16908673" index="9" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1127"/>
+<WIDGET available="true" clickable="false" count="1" id="16908331" index="10" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1128"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="11" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w1129"/>
+<WIDGET available="true" clickable="false" count="2" id="16908803" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1130"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908291" index="14" long_clickable="true" name="" simple_type="editText" text_type="1" type="android.widget.EditText" unique_id="w1131" value="tomdroid"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="15" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1132"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="16" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1133"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="18" long_clickable="false" name="OK" simple_type="button" type="android.widget.Button" unique_id="w1134" value="OK"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="20" long_clickable="false" name="Cancel" simple_type="button" type="android.widget.Button" unique_id="w1135" value="Cancel"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="22" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1136"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a84">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1185"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1186"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1187"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1188"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1189"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Backup Notes?" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1190" value="Backup Notes?"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1191"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1192"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w1193"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Copy all local notes to SD Card? This may overwrite existing notes on the SD Card." simple_type="text" type="android.widget.TextView" unique_id="w1194" value="Copy all local notes to SD Card? This may overwrite existing notes on the SD Card."/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1195"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1196"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w1197" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w1198" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1199"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a86">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1215"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1216"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1217"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1218"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1219"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Clear Notes" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1220" value="Clear Notes"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1221"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1222"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w1223"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Are you sure you want to clear the notes database?" simple_type="text" type="android.widget.TextView" unique_id="w1224" value="Are you sure you want to clear the notes database?"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1225"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1226"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w1227" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w1228" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1229"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a87">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1230"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1231"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1232"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1233"/>
+<WIDGET available="true" clickable="false" id="16908294" index="4" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1234"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Delete Remote Notes" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1235" value="Delete Remote Notes"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1236"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1237"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w1238"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Are you sure you want to delete all notes from the remote service?" simple_type="text" type="android.widget.TextView" unique_id="w1239" value="Are you sure you want to delete all notes from the remote service?"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1240"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1241"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w1242" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w1243" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1244"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+<FINAL_ACTIVITY id="a18" name="EditNote" title="Tomdroid - Edit Note" unique_id="a106">
+<DESCRIPTION>
+<WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1553"/>
+<WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1554"/>
+<WIDGET available="true" clickable="false" count="2" id="16908667" index="2" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1555"/>
+<WIDGET available="true" clickable="false" count="2" id="16908668" index="3" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1556"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908669" index="5" long_clickable="false" name="Discard Changes?" simple_type="dialog" type="com.android.internal.widget.DialogTitle" unique_id="w1557" value="Discard Changes?"/>
+<WIDGET available="true" clickable="false" id="16908670" index="6" long_clickable="false" name="" simple_type="image" type="android.widget.ImageView" unique_id="w1558"/>
+<WIDGET available="true" clickable="false" count="1" id="16908671" index="7" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1559"/>
+<WIDGET available="true" clickable="false" count="1" id="16908672" index="8" long_clickable="false" name="" simple_type="" type="android.widget.ScrollView" unique_id="w1560"/>
+<WIDGET available="true" clickable="false" content_type="default" id="16908299" index="9" long_clickable="false" name="Do you really want to discard your changes and revert the note to the last saved version?" simple_type="text" type="android.widget.TextView" unique_id="w1561" value="Do you really want to discard your changes and revert the note to the last saved version?"/>
+<WIDGET available="true" clickable="false" count="1" id="16908674" index="12" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1562"/>
+<WIDGET available="true" clickable="false" count="5" id="-1" index="13" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w1563"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908313" index="15" long_clickable="false" name="Yes" simple_type="button" type="android.widget.Button" unique_id="w1564" value="Yes"/>
+<WIDGET available="true" clickable="true" content_type="default" id="16908314" index="17" long_clickable="false" name="No" simple_type="button" type="android.widget.Button" unique_id="w1565" value="No"/>
+<WIDGET available="true" clickable="false" count="1" id="-1" index="19" long_clickable="false" name="" simple_type="" type="com.android.internal.policy.impl.PhoneWindow$DecorView" unique_id="w1566"/>
+</DESCRIPTION>
+<SUPPORTED_EVENTS/>
+</FINAL_ACTIVITY>
+</RADICE>
