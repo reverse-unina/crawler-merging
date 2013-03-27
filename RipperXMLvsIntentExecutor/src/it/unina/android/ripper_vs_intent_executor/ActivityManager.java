@@ -59,9 +59,10 @@ public class ActivityManager extends Thread{
 	@Override
 	public void run() {
 		super.run();
-		if(this.activities!=null)
+		if(this.activities!=null){
 			this.ActivityMerging();
-		if(this.doc!=null&&this.activities!=null){
+		}
+		if(this.doc != null && this.activities != null){
 			this.updateDocument(this.doc, this.activities);
 			this.PrintActivitiesOnXmlFile(this.doc, this.xmlFilePath.replace(".xml", "_merged.xml"));
 		}
@@ -91,7 +92,8 @@ public class ActivityManager extends Thread{
 		super();
 		this.activities = this.ActivityExtractor(activitiesFilePath);
 		this.xmlFilePath = activitiesFilePath;
-		setDocByXml();
+		this.doc = null;
+		while(!setDocByXml());
 	}
 
 	/***UTILITY FUNCTIONS***/
@@ -218,8 +220,8 @@ public class ActivityManager extends Thread{
 
 		for(int i=0; i<count; i++)
 		{
-			ListIterator<ActivityState> iterator = activities.listIterator(i);
-			ListIterator<ActivityState> iterator2 = activities.listIterator(i+1);
+			ListIterator<ActivityState> iterator = this.activities.listIterator(i);
+			ListIterator<ActivityState> iterator2 = this.activities.listIterator(i+1);
 			if(iterator.hasNext())
 			{
 				ActivityState a = iterator.next();
@@ -229,6 +231,7 @@ public class ActivityManager extends Thread{
 					ActivityState b = iterator2.next();
 					if (comparator.compare(a,b))
 					{
+//						System.out.println("match found");
 						b.setId(a.getId());
 					}	
 				}
@@ -365,8 +368,9 @@ public class ActivityManager extends Thread{
 		toReturn[0]=0;
 		return toReturn;
 	}
+	
 	public boolean setDocByXml(){
-		if (doc==null){
+		if (this.doc==null){
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = null;
 			try
@@ -381,20 +385,20 @@ public class ActivityManager extends Thread{
 			}
 
 			String filePath = this.xmlFilePath;
-			while(doc==null){
+			while(this.doc==null){
 				try {
 					FileInputStream stream = new FileInputStream(filePath);
-					doc = builder.parse(stream);
+					this.doc = builder.parse(stream);
 					stream.close();
 				} catch (SAXException e) {
 					//e.printStackTrace();
-					doc=null;
+					this.doc = null;
 					filePath = filePath.replace(".xml", "_fixed.xml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				return true;
 			}
+			return true;
 		}
 		return false;
 	}
@@ -407,9 +411,10 @@ public class ActivityManager extends Thread{
 
 		for(int i=0; i<_activities.size();i++)
 		{
+//			System.out.println(_activities.get(i).getUniqueId());
 			for(int j=0; j<list.getLength(); j++)
 			{
-				if(_activities.get(i).getUniqueId().equals(list.item(j).getAttributes().getNamedItem("unique_id").getLocalName()))
+				if(_activities.get(i).getUniqueId().equals(list.item(j).getAttributes().getNamedItem("unique_id").getNodeValue()))
 					list.item(j).getAttributes().getNamedItem("id").setNodeValue(_activities.get(i).getId());
 			}
 		}
@@ -441,6 +446,7 @@ public class ActivityManager extends Thread{
 	}
 
 
+	//****GETTERS AND SETTERS****//	
 	/***GETTERS AND SETTERS***/
 
 	public List<ActivityState> getActivities()

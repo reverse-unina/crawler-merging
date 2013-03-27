@@ -28,7 +28,7 @@ public class RipperIntentExecutorComparator extends ActivityManager {
 		this.report = null;
 	}
 
-	//accepts the 'activities.xml' file path and a vector of Strings with each path
+	//accepts the 'activities.xml' file path and a vector of Strings with each activity's folder path
 	public RipperIntentExecutorComparator(String activitiesFilePath, String[] activitiesFilesPaths) {
 		super(activitiesFilePath);
 		this.folderPath = null;
@@ -40,7 +40,6 @@ public class RipperIntentExecutorComparator extends ActivityManager {
 	public void run() {
 		super.run();
 		this.compare();
-		System.out.println(this.folderPath);
 		this.PrintActivitiesOnXmlFile(this.report, this.folderPath+File.separator+"report.xml");
 	}	
 
@@ -124,6 +123,7 @@ public class RipperIntentExecutorComparator extends ActivityManager {
 	{
 	
 		Comparator comparator = selectComparator();
+
 		ListIterator<ActivityState> iterator = this.getActivities().listIterator();
 
 		while(iterator.hasNext())
