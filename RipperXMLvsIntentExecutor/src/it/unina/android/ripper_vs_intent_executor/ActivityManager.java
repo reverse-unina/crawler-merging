@@ -1,11 +1,5 @@
 package it.unina.android.ripper_vs_intent_executor;
 
-import static com.nofatclips.androidtesting.model.SimpleType.BUTTON;
-import static com.nofatclips.androidtesting.model.SimpleType.EDIT_TEXT;
-import static com.nofatclips.androidtesting.model.SimpleType.IMAGE_VIEW;
-import static com.nofatclips.androidtesting.model.SimpleType.LIST_VIEW;
-import static com.nofatclips.androidtesting.model.SimpleType.MENU_VIEW;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,12 +34,6 @@ import com.nofatclips.androidtesting.guitree.TestCaseActivity;
 import com.nofatclips.androidtesting.guitree.TestCaseWidget;
 import com.nofatclips.androidtesting.model.ActivityState;
 import com.nofatclips.crawler.model.Comparator;
-import com.nofatclips.crawler.strategy.comparator.ButtonComparator;
-import com.nofatclips.crawler.strategy.comparator.CustomWidgetsComparator;
-import com.nofatclips.crawler.strategy.comparator.CustomWidgetsDeepComparator;
-import com.nofatclips.crawler.strategy.comparator.EditTextComparator;
-import com.nofatclips.crawler.strategy.comparator.NameComparator;
-import com.nofatclips.crawler.strategy.comparator.NullComparator;
 
 public class ActivityManager extends Thread{
 
@@ -231,7 +219,7 @@ public class ActivityManager extends Thread{
 					ActivityState b = iterator2.next();
 					if (comparator.compare(a,b))
 					{
-//						System.out.println("match found");
+						//						System.out.println("match found");
 						b.setId(a.getId());
 					}	
 				}
@@ -242,46 +230,47 @@ public class ActivityManager extends Thread{
 
 	public Comparator selectComparator(){
 
-		Object[] comparatorParamenters = getComparatorType(System.getProperty("user.dir") + File.separator +"files"+ File.separator +"merging_prefs.xml");
-		int type = 0;
-
-		try{
-			type = (Integer)comparatorParamenters[0];
-		}catch(NullPointerException e){
-			System.out.println(e);
+		List<List<String>> comparatorParameters = getComparatorType(System.getProperty("user.dir") + File.separator +"files"+ File.separator +"merging_prefs.xml");
+		
+		int qta = 0;
+		
+		for(int i=0; i<comparatorParameters.size();i++){
+			if(comparatorParameters.get(i).get(0).equals("PARAM_QTY")){
+				qta = Integer.parseInt(comparatorParameters.get(i).get(1));
+				continue;
+			}
+			if(comparatorParameters.get(i).get(0).equals("COMPARATOR_TYPE")){
+				Resources.COMPARATOR_TYPE = comparatorParameters.get(i).get(1);
+				continue;
+			}
+			if(comparatorParameters.get(i).get(0).equals("COMPARE_ACTIVITY_NAME")){
+				Resources.COMPARE_ACTIVITY_NAME = Boolean.getBoolean(comparatorParameters.get(i).get(1));
+				continue;
+			}
+			if(comparatorParameters.get(i).get(0).equals("COMPARE_LIST_COUNT")){
+				Resources.COMPARE_LIST_COUNT = Boolean.getBoolean(comparatorParameters.get(i).get(1));
+				continue;
+			}
+			if(comparatorParameters.get(i).get(0).equals("COMPARE_STATE_TITLE")){
+				Resources.COMPARE_STATE_TITLE = Boolean.getBoolean(comparatorParameters.get(i).get(1));
+				continue;
+			}
+			if(comparatorParameters.get(i).get(0).equals("COMPARE_VALUES")){
+				Resources.COMPARE_VALUES = Boolean.getBoolean(comparatorParameters.get(i).get(1));
+				continue;
+			}
+			if(comparatorParameters.get(i).get(0).equals("WIDGET")){
+				Resources.WIDGET_TYPES[i-qta] = comparatorParameters.get(i).get(1);
+				continue;
+			}
 		}
+		
 
-		Comparator comparator = null;
-		String[] parameters = new String[comparatorParamenters.length-1];
-
-		switch(type){
-		case 1:
-			for(int i=1; i<comparatorParamenters.length;i++)
-				parameters[i-1] = (String)comparatorParamenters[i];
-			comparator = new CustomWidgetsDeepComparator(parameters);
-			break;
-		case 2:
-			for(int i=1; i<comparatorParamenters.length;i++)
-				parameters[i-1] = (String)comparatorParamenters[i];
-			comparator = new CustomWidgetsComparator(parameters);
-			break;
-		case 3:
-			comparator = new NameComparator();
-			break;
-		case 4:
-			comparator = new ButtonComparator();
-			break;
-		case 5:
-			comparator = new EditTextComparator();
-			break;
-		default:
-			comparator = new NullComparator();
-		}
-
-		return comparator;
+		Resources.getComparator();
+		return Resources.COMPARATOR;
 	}
 
-	private Object[] getComparatorType(String file) throws NullPointerException
+	private List<List<String>> getComparatorType(String file) throws NullPointerException
 	{
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
@@ -311,64 +300,26 @@ public class ActivityManager extends Thread{
 
 		NodeList entries = first.getElementsByTagName("entry");
 
-		String comparatorType = "Null";
-		List<String> widgets = new Vector<String>();
+		List<List<String>> toReturnTemp = new Vector<List<String>>();
 
 		for(int i=0; i<entries.getLength();i++){
 
 			NamedNodeMap attributes = entries.item(i).getAttributes();
 
-			//memorizza il tipo di comparatore scelto
-			if(attributes.getNamedItem("key").getNodeValue().equals("TYPE"))
-				comparatorType = (String)attributes.getNamedItem("value").getNodeValue();
-			//memorizza (se ce ne sono) i widget su cui fare il confronto
-			else if(!attributes.getNamedItem("value").getNodeValue().equals(""))
-				widgets.add((String)attributes.getNamedItem("value").getNodeValue());
+			//memorizza il tipo di Comparatore scelto, i parametri booleani per i comparatori
+			//e, se ce ne sono, i widget su cui fare il confronto
+			if(!attributes.getNamedItem("value").getNodeValue().equals("")){
+				List<String> entry = new Vector<String>();
+				entry.add(attributes.getNamedItem("key").getNodeValue());
+				entry.add(attributes.getNamedItem("value").getNodeValue());
 
-		}
-
-		Object[] toReturn;
-
-		if (comparatorType.equals("CustomWidgetsDeepComparator"))
-		{
-			toReturn = new Object[widgets.size()+1];
-			toReturn[0]=1;
-			for(int i=1; i<=widgets.size();i++)
-				toReturn[i] = widgets.get(i-1);
-			return toReturn;
-		}
-		if (comparatorType.equals("CustomWidgetsComparator"))
-		{
-			toReturn = new Object[widgets.size()+1];
-			toReturn[0]=2;
-			for(int i=1; i<=widgets.size();i++)
-				toReturn[i] = widgets.get(i-1);
-			return toReturn;
-		}
-		if (comparatorType.equals("NameComparator"))
-		{
-			toReturn = new Object[1];
-			toReturn[0]=3;
-			return toReturn;
-		}
-		if (comparatorType.equals("ButtonComparator"))
-		{
-			toReturn = new Object[1];
-			toReturn[0]=4;
-			return toReturn;
-		}
-		if (comparatorType.equals("EditTextComparator"))
-		{
-			toReturn = new Object[1];
-			toReturn[0]=5;
-			return toReturn;
+				toReturnTemp.add(entry);
+			}
 		}
 
-		toReturn = new Object[1];
-		toReturn[0]=0;
-		return toReturn;
+		return toReturnTemp;
 	}
-	
+
 	public boolean setDocByXml(){
 		if (this.doc==null){
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -411,7 +362,7 @@ public class ActivityManager extends Thread{
 
 		for(int i=0; i<_activities.size();i++)
 		{
-//			System.out.println(_activities.get(i).getUniqueId());
+			//			System.out.println(_activities.get(i).getUniqueId());
 			for(int j=0; j<list.getLength(); j++)
 			{
 				if(_activities.get(i).getUniqueId().equals(list.item(j).getAttributes().getNamedItem("unique_id").getNodeValue()))
@@ -447,7 +398,6 @@ public class ActivityManager extends Thread{
 
 
 	//****GETTERS AND SETTERS****//	
-	/***GETTERS AND SETTERS***/
 
 	public List<ActivityState> getActivities()
 	{
