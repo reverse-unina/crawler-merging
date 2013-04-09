@@ -4,15 +4,15 @@
   <root type="user">
     <map/>
     <node name="comparator">
-      <map>	
+      <map>
         <entry key="PARAM_QTY" value="6"/><!--N° di parametri (esclusi i widget) +1 -->
-        <entry key="COMPARATOR_TYPE" value="NameComparator"/>
+        <entry key="COMPARATOR_TYPE" value="CustomWidgetsComparator"/>
         <entry key="COMPARE_ACTIVITY_NAME" value="true"/>
         <entry key="COMPARATOR_LIST_COUNT" value="true"/>
         <entry key="COMPARATOR_STATE_TITLE" value="true"/>
         <entry key="COMPARATOR_VALUES" value="true"/>
-        <entry key="WIDGET" value=""/>
-        <entry key="WIDGET" value=""/>
+        <entry key="WIDGET" value="RelativeLayout"/>
+        <entry key="WIDGET" value="linearLayout"/>
         <entry key="WIDGET" value=""/>
         <entry key="WIDGET" value=""/>
         <entry key="WIDGET" value=""/>
