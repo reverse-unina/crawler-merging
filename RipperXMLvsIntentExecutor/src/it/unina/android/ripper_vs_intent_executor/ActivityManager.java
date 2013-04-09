@@ -30,6 +30,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import it.unina.android.ripper_vs_intent_executor.Resources;
 import com.nofatclips.androidtesting.guitree.TestCaseActivity;
 import com.nofatclips.androidtesting.guitree.TestCaseWidget;
 import com.nofatclips.androidtesting.model.ActivityState;
@@ -237,6 +238,7 @@ public class ActivityManager extends Thread{
 		for(int i=0; i<comparatorParameters.size();i++){
 			if(comparatorParameters.get(i).get(0).equals("PARAM_QTY")){
 				qta = Integer.parseInt(comparatorParameters.get(i).get(1));
+				Resources.WIDGET_TYPES = new String[comparatorParameters.size()-qta];
 				continue;
 			}
 			if(comparatorParameters.get(i).get(0).equals("COMPARATOR_TYPE")){

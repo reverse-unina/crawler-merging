@@ -21,7 +21,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </START_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a2">
+<FINAL_ACTIVITY id="a2" name="Tomdroid" title="Tomdroid" unique_id="a2">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w16"/>
 <WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w17"/>
@@ -41,7 +41,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a5">
+<FINAL_ACTIVITY id="a5" name="Tomdroid" title="Tomdroid" unique_id="a5">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w63"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w64"/>
@@ -74,7 +74,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a7">
+<FINAL_ACTIVITY id="a7" name="Tomdroid" title="Tomdroid" unique_id="a7">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w86"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w87"/>
@@ -105,7 +105,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a9">
+<FINAL_ACTIVITY id="a9" name="Tomdroid" title="Tomdroid" unique_id="a9">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="4" id="16908726" index="0" long_clickable="false" name="" simple_type="menu" type="com.android.internal.view.menu.IconMenuView" unique_id="w112"/>
 <WIDGET available="true" clickable="true" content_type="default" id="16908310" index="1" long_clickable="false" name="Revert All" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w113" value="Revert All"/>
@@ -116,7 +116,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a11">
+<FINAL_ACTIVITY id="a2" name="Tomdroid" title="Tomdroid" unique_id="a11">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="2" id="-1" index="0" long_clickable="false" name="" simple_type="linearLayout" type="android.widget.LinearLayout" unique_id="w133"/>
 <WIDGET available="true" clickable="false" count="1" id="16908662" index="1" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w134"/>
@@ -132,7 +132,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a6" name="ViewNote" title="Tomdroid - View Note" unique_id="a15">
+<FINAL_ACTIVITY id="a15" name="ViewNote" title="Tomdroid - View Note" unique_id="a15">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="3" id="16908726" index="0" long_clickable="false" name="" simple_type="menu" type="com.android.internal.view.menu.IconMenuView" unique_id="w183"/>
 <WIDGET available="true" clickable="true" content_type="default" id="16908310" index="1" long_clickable="false" name="Send" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w184" value="Send"/>
@@ -159,7 +159,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a19">
+<FINAL_ACTIVITY id="a19" name="Tomdroid" title="Tomdroid" unique_id="a19">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w226"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w227"/>
@@ -179,7 +179,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a20">
+<FINAL_ACTIVITY id="a19" name="Tomdroid" title="Tomdroid" unique_id="a20">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w241"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w242"/>
@@ -199,7 +199,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a32">
+<FINAL_ACTIVITY id="a19" name="Tomdroid" title="Tomdroid" unique_id="a32">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w401"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w402"/>
@@ -219,7 +219,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a33">
+<FINAL_ACTIVITY id="a33" name="Tomdroid" title="Tomdroid" unique_id="a33">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w416"/>
 <WIDGET available="true" clickable="false" count="1" id="16908814" index="1" long_clickable="false" name="" simple_type="" type="android.app.SearchDialog$SearchBar" unique_id="w417"/>
@@ -232,7 +232,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a34">
+<FINAL_ACTIVITY id="a19" name="Tomdroid" title="Tomdroid" unique_id="a34">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w424"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w425"/>
@@ -304,7 +304,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a1" name="Tomdroid" title="Tomdroid" unique_id="a39">
+<FINAL_ACTIVITY id="a39" name="Tomdroid" title="Tomdroid" unique_id="a39">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w522"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w523"/>
@@ -321,7 +321,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a6" name="ViewNote" title="Tomdroid - View Note" unique_id="a44">
+<FINAL_ACTIVITY id="a44" name="ViewNote" title="Tomdroid - View Note" unique_id="a44">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w576"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w577"/>
@@ -358,7 +358,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a18" name="EditNote" title="Tomdroid - Edit Note" unique_id="a51">
+<FINAL_ACTIVITY id="a51" name="EditNote" title="Tomdroid - Edit Note" unique_id="a51">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="4" id="16908726" index="0" long_clickable="false" name="" simple_type="menu" type="com.android.internal.view.menu.IconMenuView" unique_id="w696"/>
 <WIDGET available="true" clickable="true" content_type="default" id="16908310" index="1" long_clickable="false" name="Save" simple_type="menuItem" type="com.android.internal.view.menu.IconMenuItemView" unique_id="w697" value="Save"/>
@@ -369,7 +369,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a76">
+<FINAL_ACTIVITY id="a76" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a76">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1043"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1044"/>
@@ -390,7 +390,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a78">
+<FINAL_ACTIVITY id="a78" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a78">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1075"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1076"/>
@@ -410,7 +410,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a80">
+<FINAL_ACTIVITY id="a76" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a80">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1105"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1106"/>
@@ -431,7 +431,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a81">
+<FINAL_ACTIVITY id="a76" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a81">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1121"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1122"/>
@@ -452,7 +452,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a84">
+<FINAL_ACTIVITY id="a84" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a84">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1185"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1186"/>
@@ -472,7 +472,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a86">
+<FINAL_ACTIVITY id="a84" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a86">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1215"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1216"/>
@@ -492,7 +492,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a35" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a87">
+<FINAL_ACTIVITY id="a84" name="PreferencesActivity" title="Tomdroid - Settings" unique_id="a87">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1230"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1231"/>
@@ -512,7 +512,7 @@
 </DESCRIPTION>
 <SUPPORTED_EVENTS/>
 </FINAL_ACTIVITY>
-<FINAL_ACTIVITY id="a18" name="EditNote" title="Tomdroid - Edit Note" unique_id="a106">
+<FINAL_ACTIVITY id="a106" name="EditNote" title="Tomdroid - Edit Note" unique_id="a106">
 <DESCRIPTION>
 <WIDGET available="true" clickable="false" count="1" id="16908290" index="0" long_clickable="false" name="" simple_type="" type="android.widget.FrameLayout" unique_id="w1553"/>
 <WIDGET available="true" clickable="false" count="4" id="16908666" index="1" long_clickable="false" name="" simple_type="linearLayout" type="com.android.internal.widget.WeightedLinearLayout" unique_id="w1554"/>
