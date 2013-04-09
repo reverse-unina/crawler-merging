@@ -1,5 +1,6 @@
 package it.unina.android.ripper_vs_intent_executor;
 
+import java.awt.Desktop;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,7 +18,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
 
+@SuppressWarnings("serial")
 public class GUI extends JFrame {
 
 	private JPanel contentPane;
@@ -25,6 +28,7 @@ public class GUI extends JFrame {
 	private JTextField txtActivitiesFoldersPath;
 	private JLabel lblDone;
 	private JLabel lblReportPath;
+	private JButton btnOpenReport;
 
 	/**
 	 * Launch the application.
@@ -114,6 +118,11 @@ public class GUI extends JFrame {
 		lblReportPath = new JLabel("Report");
 		panel_3.add(lblReportPath);
 		lblReportPath.setEnabled(true);
+		
+		btnOpenReport = new JButton("Open");
+		
+		panel_3.add(btnOpenReport);
+		btnOpenReport.setVisible(false);
 		lblReportPath.setVisible(false);
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -125,9 +134,20 @@ public class GUI extends JFrame {
 					e1.printStackTrace();
 				}
 				lblDone.setVisible(true);
-				lblReportPath.setText("Report created:\n" + new File(txtActivitiesFoldersPath.getText()).getName() + File.separator + "report.xml");
-
+				lblReportPath.setText("Report created");
+				
 				lblReportPath.setVisible(true);
+				btnOpenReport.setVisible(true);
+			}
+		});
+		btnOpenReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Desktop desktop = Desktop.getDesktop();
+				try {
+					desktop.open(new File(txtActivitiesFoldersPath.getText() + File.separator + "report.xml"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 	}
