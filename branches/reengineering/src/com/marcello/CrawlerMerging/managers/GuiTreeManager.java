@@ -1,4 +1,4 @@
-package com.marcello.merge;
+package com.marcello.CrawlerMerging.managers;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,6 +10,7 @@ import java.util.Observable;
 import java.util.Vector;
 import java.util.regex.PatternSyntaxException;
 
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,6 +29,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.marcello.CrawlerMerging.Settings;
 import com.nofatclips.androidtesting.model.ActivityState;
 import com.unina.tata.filemanager.FileManagerFSM;
 
@@ -40,8 +42,14 @@ public class GuiTreeManager extends Observable implements Runnable{
 	public static final int GUITREE = 1;
 
 	@Override
-	public void run() {
-		this.mergeGuitree();
+	public void run(){
+		try{
+			this.mergeGuitree();
+		}
+		catch(java.lang.OutOfMemoryError e){
+			JOptionPane.showMessageDialog(null, e.getLocalizedMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE, null);
+		}
+
 	}
 
 	/***CONSTRUCTORS****/
@@ -66,7 +74,7 @@ public class GuiTreeManager extends Observable implements Runnable{
 		this.doc = doc;
 		this.aManager = null;
 	}
-	
+
 	public GuiTreeManager(String filePath) {
 		super();
 		this.xmlFilePath = filePath;
@@ -198,15 +206,15 @@ public class GuiTreeManager extends Observable implements Runnable{
 
 			Element transition = (Element)nodeList.item(i);	//Per ogni nodo TRANSITION
 
-//			Element start_activity = (Element)transition.getElementsByTagName("START_ACTIVITY").item(0);	//Estrae il nodo start (spreco risorse)
-//			Element final_activity = (Element)transition.getElementsByTagName("FINAL_ACTIVITY").item(0);	//Estrae il nodo final (spreco risorse)
+			//			Element start_activity = (Element)transition.getElementsByTagName("START_ACTIVITY").item(0);	//Estrae il nodo start (spreco risorse)
+			//			Element final_activity = (Element)transition.getElementsByTagName("FINAL_ACTIVITY").item(0);	//Estrae il nodo final (spreco risorse)
 			Element event = (Element)transition.getElementsByTagName("EVENT").item(0);	//Estrae il nodo event
 
 			String key = ((Element) transition.getElementsByTagName("START_ACTIVITY").item(0)).getAttribute("id")+((Element) transition.getElementsByTagName("FINAL_ACTIVITY").item(0)).getAttribute("id");	//crea la chiave composta dagli 'id' di start e final
 
 			//System.out.println("key: "+key);
 
-			if(table.containsKey(key)){	//Se la tabella già contiene l'id ricavato
+			if(table.containsKey(key)){	//Se la tabella gi? contiene l'id ricavato
 				Iterator<Element> iterator = table.get(key).iterator();	//ricava un iteratore sulle transition relative alla chiave
 				boolean find = false;
 				while(iterator.hasNext()&&find==false){	//scorre le transition relative alla chiave
@@ -216,7 +224,7 @@ public class GuiTreeManager extends Observable implements Runnable{
 						find=true;
 					}
 				}
-				if(find==false)	//se nella tabella non è presente un evento con lo stesso tipo di quello in esame
+				if(find==false)	//se nella tabella non ? presente un evento con lo stesso tipo di quello in esame
 					table.get(key).add(event);	//inserisci l'evento in tabella 
 			}
 			else{	//se la tabella non contiene l'id ricavato

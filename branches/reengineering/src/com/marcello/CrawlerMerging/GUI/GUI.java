@@ -1,4 +1,4 @@
-package com.marcello.merge;
+package com.marcello.CrawlerMerging.GUI;
 
 import java.awt.EventQueue;
 
@@ -17,6 +17,8 @@ import java.util.Observer;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.marcello.CrawlerMerging.CrawlerMerging;
 
 public class GUI{
 

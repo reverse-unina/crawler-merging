@@ -1,9 +1,11 @@
-package com.marcello.merge;
+package com.marcello.CrawlerMerging;
 
 import java.io.File;
 import java.util.Observable;
 
-public class CrawlerMerging extends Observable implements Runnable {
+import com.marcello.CrawlerMerging.managers.GuiTreeManager;
+
+public class CrawlerMerging extends Observable implements Runnable { 
 
 	private String arg;
 
@@ -17,7 +19,7 @@ public class CrawlerMerging extends Observable implements Runnable {
 	}
 
 	@Override
-	public void run() {
+	public void run() throws java.lang.OutOfMemoryError{
 
 		if (arg.endsWith(".zip")==false){
 			System.out.println("file .zip not provided, the program will terminate.");
@@ -37,18 +39,18 @@ public class CrawlerMerging extends Observable implements Runnable {
 
 		tMerging.setXmlFilePath(arg.replace(".zip", File.separator + "guitree.xml" ));
 
-		//Scompatta il file di input qualora non sia stato giˆ fatto in precedenza
+		//Scompatta il file di input qualora non sia stato gia' fatto in precedenza
 		tMerging.unZipIt(arg);
 
 		//Fa una lista delle cartelle che contengono i file utili per l'algoritmo di merging (activities.xml e guitree.xml)
 		tMerging.setList(tMerging.getFoldersList(arg.replace(".zip", "")));
 		System.out.println("Trovate "+tMerging.getList().length + " cartelle adatte.");
 
-		//Stampa il nome delle cartelle a cui sarˆ applicato l'algoritmo
+		//Stampa il nome delle cartelle a cui sar? applicato l'algoritmo
 		//for(int i=0;i<list.length;i++)		
 		//System.out.println(list[i].getName());
 
-		//definisci l'insieme di thread che gestirˆ il processo di merging
+		//definisci l'insieme di thread che gestir? il processo di merging
 		Thread[] threads = new Thread[tMerging.getList().length];
 
 		//istanzia un monitor per supervisionare i thread
