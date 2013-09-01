@@ -1,4 +1,4 @@
-package com.marcello.merge;
+package com.marcello.CrawlerMerging;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,6 +23,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.marcello.CrawlerMerging.managers.ActivityManager;
+import com.marcello.CrawlerMerging.managers.GuiTreeManager;
 import com.nofatclips.androidtesting.model.ActivityState;
 import com.nofatclips.crawler.model.Comparator;
 import com.unina.tata.filemanager.FileManagerFSM;
@@ -208,7 +210,7 @@ public class TotalMerging implements Observer{
 			{
 				ActivityState b = iteratorCurrent.next();
 
-				//se il risultato è positivo si cambia l'id dell'activity in esame in quello
+				//se il risultato ? positivo si cambia l'id dell'activity in esame in quello
 				//dell'activity della lista temporanea
 				if (comparator.compare(a,b))
 				{
