@@ -1,4 +1,4 @@
-package com.marcello.merge;
+package com.marcello.CrawlerMerging;
 
 import java.util.Observable;
 

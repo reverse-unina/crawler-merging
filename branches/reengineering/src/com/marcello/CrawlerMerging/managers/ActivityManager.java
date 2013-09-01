@@ -1,4 +1,4 @@
-package com.marcello.merge;
+package com.marcello.CrawlerMerging.managers;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -31,6 +31,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.marcello.CrawlerMerging.Settings;
 import com.nofatclips.androidtesting.guitree.TestCaseActivity;
 import com.nofatclips.androidtesting.guitree.TestCaseWidget;
 import com.nofatclips.androidtesting.model.ActivityState;
@@ -52,7 +53,7 @@ public class ActivityManager extends Thread{
 
 
 	@Override
-	public void run() {
+	public void run() throws java.lang.OutOfMemoryError {
 		super.run();
 		if(this.activities!=null)
 			this.ActivityMerging();
@@ -64,14 +65,14 @@ public class ActivityManager extends Thread{
 
 	/***CONSTRUCTORS****/
 
-	ActivityManager(){
+	public ActivityManager(){
 		super();
 		this.activities = null;
 		this.xmlFilePath = null;
 		this.doc = null;
 	}
 
-	ActivityManager(List<ActivityState> activities)
+	public ActivityManager(List<ActivityState> activities)
 	{
 		super();
 		this.xmlFilePath = null;
@@ -79,7 +80,7 @@ public class ActivityManager extends Thread{
 		this.activities.addAll(activities);
 	}
 
-	ActivityManager(String activitiesFilePath){
+	public ActivityManager(String activitiesFilePath){
 		super();
 		this.activities = this.ActivityExtractor(activitiesFilePath);
 		this.xmlFilePath = activitiesFilePath;
